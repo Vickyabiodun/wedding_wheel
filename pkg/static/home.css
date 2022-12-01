@@ -1,0 +1,579 @@
+
+    @media all and (max-width: 992px) {
+
+#tool,#tool2, #lastblog, #lastwed, #somestats, #somestats2,#weddingvenue, #lastrev,#newsletter,#contact,#address,#caterers,#thedj,#wedphoto {
+display:none;
+    }
+
+    
+}
+@media all and (max-width: 552px) {
+
+  #tool,#tool2, #lastblog, #lastwed, #somestats, #somestats2,#weddingvenue, #lastrev,#newsletter,#contact,#address,#caterers,#thedj,#wedphoto,#second3,#navprice,#navblog,#works,#secblog {
+  display:none;
+      }
+  
+      
+  }
+.first{
+    min-height: 80px;
+    display: flex;
+    font-family:'Rubik', sans-serif;
+    color: white !important;
+    
+  }
+  .nav-link{
+    color: white !important;
+    font-family:'Rubik', sans-serif;
+    font-size: 14px;
+  }
+  .nav{
+    margin-left: 6%;
+
+  }
+  .bgimg{
+    background-image:url("/static/image/background.jpg");
+    height: 800px;
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #1D1E1D;
+
+  }
+  .logo{
+    font-size: 25px;
+    color: red;
+  }
+  .second{
+    min-height: 300px;
+    display: flex;
+
+  }
+  #second1{
+    min-height: 80px;
+    color: white;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 300;
+    font-size: 42px;
+    text-align: center;
+  }
+  #second2{
+    min-height: 80px;
+    color: white;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 200;
+    font-size: 18px;
+    text-align: center;
+
+  }
+  #second3{
+    min-height: 80px;
+    color: white;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 500;
+    
+  }
+  .third{
+    min-height: 100px;
+    display: flex;
+    color: white;
+    font-family: 'Rubik', sans-serif;
+    font-size: 18px;
+  }
+  .sample{
+    background-color: rgba(0,0,0,0.5);
+    height: 800px;
+  }
+  .form-row{
+    display: flex;
+  }
+  .wide{
+    width: 320px;
+    border:6px solid black;
+    min-height: 60px;
+  }
+  #firstsearch{
+    border:6px solid black;
+    min-height: 60px;
+
+  }
+  
+  .fa-clipboard-list{
+    color: white;
+    
+  }
+  .firsti{
+    
+    border-radius: 50%;
+    border: 2px solid grey;
+    padding: 20px;
+  }
+  #hr1{
+    width: 100%; 
+    margin: auto; 
+    margin-top: 20px; 
+    margin-bottom: 10px; 
+    border: 2px solid white; 
+
+
+  }
+  .category{
+    background-color: white;
+    display: flex;
+    min-height: 50px;
+    color:'Rubik', sans-serif;
+  }
+  .browse{
+  
+    text-align: center;
+    margin-top: 5%;
+  }
+  .toolhead{
+    display: flex;
+  }
+  #browsep{
+    font-size: 18px;
+    color:grey;
+  }
+  .picture1{
+    height: 350px;
+    display: flex;
+    margin-top: 3%;
+
+
+  }
+  .picture2{
+    height: 350px;
+    display: flex;
+    margin-top: 3%;
+  }
+  .p1{
+  
+    transition: transform .2s; 
+    margin-top: 2%;
+    position: relative;
+
+
+  }
+  .p1:hover{
+    transform: scale(1.05);
+
+  }
+  .p2{
+
+    transition: transform .2s; 
+    margin-top: 1%;
+    position: relative;
+
+  }
+  .p2:hover{
+    transform: scale(1.05);
+  }
+  .overlay {
+    position: absolute;
+    bottom: 0;
+    background: rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 0.5); 
+    color: #f1f1f1;
+    width: 300px;
+    transition: .5s ease;
+    opacity:0;
+    color: white;
+    font-size: 20px;
+    padding: 20px;
+    text-align: center;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 500;
+  }
+  .img {
+    display: block;
+    width: 400px;
+    height: auto;
+  }
+  .p1:hover .overlay {
+  opacity: 1;
+}
+.p2:hover .overlay {
+  opacity: 1;
+}
+.btncategory{
+  height: 60px;
+  margin-top: 3%;
+
+}
+.btncategory1{
+  background-color: #E14648;
+  color: white;
+  text-align: center;
+  font-size: 12px;
+  font-family: 'Rubik', sans-serif;
+}
+.tools{
+  background-color: #F6F6F6;
+  min-height: 650px;
+}
+.thetools{
+  display: flex;
+  margin-top: 3%;
+}
+
+.ptool{
+  font-family: 'Rubik', sans-serif;
+  font-weight: 200;
+  font-size: 20px;
+}
+.tool:hover{
+  color:red !important;
+}
+.atool{
+  color: black;
+  text-decoration: none;
+}
+.atool:hover{
+  color:red !important;
+
+}
+.btntool{
+  height: 50px;
+  margin-top: 1%;
+  margin-bottom: 5%;
+}
+.btntool1{
+  background-color: #E14648;
+  height: 50px;
+  color: white;
+  text-align: center;
+  font-size: 18px;
+  font-family: 'Rubik', sans-serif;
+}
+#log{
+  color:red !important;
+  text-decoration: none;
+}
+
+#log1{
+  color:white !important;
+  text-decoration: none;
+}
+.background{
+    background-image:url("/static/image/bg2.jpg");
+    min-height: 650px;
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.bg2{
+    background-color: rgba(0,0,0,0.3);
+    min-height: 650px;
+    
+  }
+  .how{
+    display: flex;
+  }
+  #bg1{
+    color:white;
+    font-family: 'Rubik', sans-serif;
+    height: 100px;
+    text-align: center;
+    font-weight: 300;
+    margin-top: 5%;
+  }
+  .secondi{
+    margin-top: 10%;
+
+    border-radius: 50%;
+    border: 2px solid grey;
+    padding: 50px;
+    color:#E14648;
+
+  }
+  
+  .howimg{
+    display:flex;
+    min-height: 100px;
+  }
+  .numi{
+    
+    border-radius: 50%;
+    border: 2px solid grey;
+    padding: 5px;
+    color:#E14648;
+
+
+  }
+  .howimg2{
+    display:flex;
+    height: 100px;
+    color:white;
+    font-family: 'Rubik', sans-serif;
+    text-align: center;
+  }
+  #real{
+    color:black;
+    font-family: 'Rubik', sans-serif;
+    height: 100px;
+    text-align: center;
+    font-weight: 300;
+    margin-top: 5%;
+  }
+  .realwedingheader{
+    text-align: center;
+
+  }
+  .realimg{
+    display:flex;
+    height: 350px;
+    margin-left: 5%;
+    margin-top: 3%;
+  }
+  .names{
+    color: black;
+    font-family: 'Rubik', sans-serif;
+    font-size: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+  }
+  .names:hover{
+    color: #E14648;
+    border: 1px solid red;
+    overflow: hidden;
+    border-radius: 25px;
+    transform: scale(1.05);
+
+  }
+  
+  .imgname{
+    transition: transform .2s; 
+
+  }
+  .imgname:hover{
+    transform: scale(1.05);
+
+  }
+  .imgdiv{
+    border: 1px solid white;
+  }
+  .date{
+    text-decoration: underline;
+    text-decoration-color: #E14648;
+    font-family: 'Rubik', sans-serif;
+    font-size: 16px;
+    font-weight: 100;
+  }
+  .location{
+    margin-left: 35%;
+    font-family: 'Rubik', sans-serif;
+    font-size: 16px;
+    font-weight: 100;
+  }
+  .realbtn{
+    margin-bottom: 8%;
+  }
+  .realimg2{
+    display:flex;
+    min-height: 600px;
+    margin-top: 3%;
+  }
+  .tools2{
+  background-color:#F6F6F6;
+  
+}
+.reviews{
+  background-color: white;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 100;
+
+}
+.review1div{
+  min-height: 500px;
+  display: flex;
+  margin-left: 5%;
+  margin-top: 5%;
+
+}
+.review1{
+  min-height: 500px;
+  background-color: #FEFBF3;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 100;
+  text-align: left;
+  line-height: 30px;
+}
+.line {
+  border: 0;
+  background-color: grey;
+  height: 5px;
+  cursor: pointer;
+  margin-top: 10%;
+}
+.line1{
+  border: 0;
+  background-color: grey;
+  height: 5px;
+  cursor: pointer;
+  margin-top: 15%;
+}
+.revname{
+margin-top: 5%;
+margin-left:5% ;      
+}
+.imgreview{
+border-radius: 50%;
+margin-left: 1%;
+}
+.rating{
+color:#FFA911;
+margin-left: 20%;
+}
+.job{
+font-size: 20px;
+font-family: 'Rubik', sans-serif;
+font-weight: 300;
+}
+.location1{
+    margin-left: 80%;
+    font-family: 'Rubik', sans-serif;
+    font-size: 16px;
+    font-weight: 100;
+  }
+.realimg2{
+    display:flex;
+    min-height: 600px;
+    margin-left: 5%;
+    margin-top: 3%;
+  }
+.name{
+    color: black;
+    font-family: 'Rubik', sans-serif;
+    font-size: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    font-weight: 100;
+  }
+.name:hover{
+    color: #E14648;
+    
+
+  }
+
+.admin{
+    color: black;
+    font-family: 'Rubik', sans-serif;
+    font-size: 16px;
+    text-decoration: none;
+    font-weight: 100;
+
+  }
+.admin:hover{
+    color: #E14648;
+    
+
+  }
+
+.blogtext{
+font-family: 'Rubik', sans-serif;
+font-size: 16px;
+font-weight: 100;
+margin-top: 3%;
+text-align: center;
+
+}
+.listingrow{
+    display:flex;
+    min-height:200px;
+    background-color:#FF4D4D;
+    
+  }
+.listingdiv{
+    min-height:100px;
+    background-color:#FF4D4D;
+    margin-top:6%;
+  }
+.listingtextbox{
+    min-height: 100px;
+    margin-top:4%;
+    margin-bottom:4%;
+    color:white;
+    text-align: center;
+  }
+.listingbtn{
+    min-height:50px;
+    background-color:#00A28E;
+    color:white;
+    font-size: 22px;
+
+}
+.mediasec{
+    background-color:#38363C;
+    min-height:80px;
+    color:white;
+    text-align: center;
+
+  }
+.fa-brands{
+      color:white;
+    }
+.fa-brands:hover{
+      color:#FF4D4D;
+
+    }
+.footer{
+min-height:350px;
+display: flex;
+background-color: #302D33;
+}
+.footerdiv{
+height:250px;
+margin-top: 2%;
+}
+.footerdiv p{
+color: #98969B;
+font-family: 'Rubik', sans-serif;
+font-size: 12px;
+font-weight: 100;
+text-align: left;
+}
+.logo1{
+color: white;
+font-family: 'Rubik', sans-serif;
+font-size: 20px;
+font-weight: 500;
+}
+.footerdiv h4{
+color: white;
+font-size: 14px;
+
+
+}
+.footerdiv p i{
+color:#FF4D4D;
+}
+.footerdiv p a{
+text-decoration: none;
+color: #98969B;
+
+}
+.footerdiv p a:hover{
+color:#FF4D4D;
+}
+.footerdiv input{
+min-height: 40px;
+background-color: #444248;
+}
+.copyright{
+  background-color:#252428;
+  min-height:40px;
+  display: flex;
+}
+.copyright span{
+  color: #98969B;
+  font-size:16px;
+  font-weight:100px;
+  font-family:'Rubik', sans-serif;
+}
+.copyright i{
+  color:#FF4D4D;
+}
+

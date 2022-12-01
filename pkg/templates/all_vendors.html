@@ -1,0 +1,52 @@
+{%extends 'admin_layout.html'%}
+
+{%block content%}
+<div class="welcome mt-lg-5 ms-lg-5">
+<h4>All Vendors</h4>
+<hr>
+
+
+
+
+
+{%if vendorslist%}
+{%for vend in vendorslist%}
+<div class="row justify-content-start mt-lg-2 listed">
+    
+<div class="col-lg-8 quotes">
+
+    <p><a href="/admin/vendors/{{vend.vendor_id}}">{{vend.vendor_name}}</a> </p>
+
+
+</div>
+
+<div class="col-lg-2 quotes">
+    <button class="btn addbtn"><a href="/admin/approve/{{vend.vendor_id}}">Approve</a></button>
+
+
+
+</div>
+<div class="col-lg-2 quotes">
+
+    <button class="btn addbtn"><a href="/admin/ban/{{vend.vendor_id}}">Suspend Vendor</a></button>
+
+</div>
+</div>
+
+{%endfor%}
+{%else%}
+
+
+    <div>
+    
+    
+        <p>No quote Sent</p>
+        <p> </p>
+    
+    
+    </div>
+    
+
+{%endif%}
+
+{%endblock%}

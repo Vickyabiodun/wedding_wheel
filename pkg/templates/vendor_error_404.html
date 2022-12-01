@@ -1,0 +1,16 @@
+{%extends 'dashboard_vendor.html'%}
+{%block content%}
+<div class="welcome mt-lg-5 ms-lg-5 mt-4 ms-2 " >
+    {%if getvendor%}
+    
+    <h4 style="color: red;">Page Not Found</h4>
+    <hr>
+    {%endif%}
+    
+    </div>
+
+    <p class="ms-lg-5" style="color: red;">
+        {{errormessage}}
+    </p>    
+            
+{%endblock%}

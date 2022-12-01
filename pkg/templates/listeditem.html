@@ -1,0 +1,66 @@
+{%extends 'dashboard_vendor.html'%}
+{%set d = get_flashed_messages()%}
+{%block content%}
+<div class="welcome mt-lg-5 ms-lg-5 ms-3 mt-3">
+<h4>My Listing!</h4>
+<p>Lists present multiple line items vertically as a single continuous element.</p>
+<hr>
+
+
+</div>
+{%if d%}
+{%for remove in d%}
+<p class="alert alert-danger">{{remove}}</p>
+{%endfor%}
+{%endif%}
+<div class="row redbtn justify-content-end mb-3">
+    <div class="col-lg-2 col-4 col-sm-2">
+        <button type="button" class="col-lg-10 p-2 redbtnitem"><a href="{{url_for('newlisted')}}">List Item</a></button>
+            
+
+    </div>
+</div>
+
+
+{%if listeditems%}
+    {%for items in listeditems%}
+<div class="row justify-content-center mb-lg-3 mt-lg-4 listed">
+    
+    <div class="col-lg-2 col-6 mb-3">
+
+    <a href="/vendor_listing_homepage/{{items.listing_id}}">
+
+            <img src="/static/uploads/{{items.gallery_of_venue}}" class="col-12">
+        </a>
+        </div>
+        <div class="col-lg-9 col-6">
+
+                <a href="/vendor_listing_homepage/{{items.listing_id}}">
+
+            <h5> {{items.title}}</h5>
+            <p>{{items.address}},<span>{{items.vendorstate.state_name}}</span></p>
+
+             </a>
+        </div>
+        
+
+        <div class="col-lg-1 col-12">
+            <button class="btn  redbtnitem mt-lg-3 mb-3">
+                
+                <a href="/vendor/delete/{{items.listing_id}}" style="color:white !important">Delete</a>
+                
+            </button>
+        
+        </div>
+        
+
+        
+    
+       
+        
+</div>   
+{%endfor%}
+
+        {%endif%}
+
+{%endblock%}

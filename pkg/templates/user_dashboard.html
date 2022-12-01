@@ -1,0 +1,111 @@
+{%extends 'dashboard_layout.html'%}
+{%block content%}
+<div class="row">
+    <div class="welcome mt-lg-5 ms-lg-5 mt-4 ms-2">
+        {%if getcouple%}
+        
+        <h4>{{getcouple.couple_name}}'s Dashboard</h4>
+        <p>Welcome {{getcouple.couple_name}}! You can check and manage your wishlist, checklist, budget and guestlist overview.</p>
+        <hr>
+        {%endif%}
+        
+        </div>
+
+</div>
+
+
+<div class="row line1 justify-content-around">
+    <div class="col-lg-3 col-10 mb-4 line1div  ms-lg-3">
+        {%if allwish%}
+        <p class="mt-lg-3">Vendors Wishlist</p>
+        <hr>
+        <h1 class="mynumber">{{allwish|count}}</h1>
+        <p>Compare & Finalize</p>
+        <hr>
+        <p class="thelink"><a href="{{url_for('wishlist_dashboard')}}" class="view">View all</a></p>
+        {%else%}
+        <p class="mt-lg-3">Vendors Wishlist</p>
+        <hr>
+        <h1 class="mynumber">0</h1>
+        <p>Compare & Finalize</p>
+        <hr>
+        <p class="thelink"><a href="{{url_for('wishlist_dashboard')}}" class="view">View all</a></p>
+        {%endif%}
+    </div>
+    <div class="col-lg-3 col-10 mb-4 line1div">
+        <p class="mt-lg-3">Table Seating</p>
+        <hr>
+        <h1 class="mynumber">0</h1>
+        <p>-- Seat remain</p>
+        <hr>
+        <p class="thelink"><a href="#" class="view">View all</a></p>
+
+
+    </div>
+    <div class="col-lg-3 col-10 mb-4 line1div">
+
+        <p class="mt-lg-3">Guest List</p>
+        <hr>
+        <h1 class="mynumber">0</h1>
+        <p>0 Accepted 0 Declined</p>
+        <hr>
+        <p class="thelink"><a href="#" class="view">View all</a></p>
+
+    </div>
+
+
+</div>
+<div class="row line1 justify-content-around">
+
+    <div class="col-lg-3 col-10 mb-4 line1div  ms-lg-3">
+        <p class="mt-lg-3">Budget</p>
+        <hr>
+        <h1 class="mynumber">$ 0</h1>
+        <p>Spent $ 0 out of $0 so far</p>
+        <hr>
+        <p class="thelink"><a href="#" class="view">View all</a></p>
+
+
+    </div>
+    <div class="col-lg-3 col-10 mb-4 line1div">
+        {%if thet%}
+
+        <p class="mt-lg-3">Total To Do</p>
+        <hr>
+        <h1 class="mynumber">{{thet|count}}</h1>
+        <p>0 Complete 0 remain</p>
+        <hr>
+        <p class="thelink"><a href="{{url_for('todo_dashboard')}}" class="view">View all</a></p>
+        {%else%}
+        <p class="mt-lg-3">Total To Do</p>
+        <hr>
+        <h1 class="mynumber">0</h1>
+        <p>0 Complete 0 remain</p>
+        <hr>
+        <p class="thelink"><a href="{{url_for('todo_dashboard')}}" class="view">View all</a></p>
+        {%endif%}
+
+    </div>
+    <div class="col-lg-3 col-10 mb-4 line1div">
+        {%if quotesent%}
+        
+        <p class="mt-lg-3">Quotes Requested</p>
+        <hr>
+        <h1 class="mynumber">{{quotesent|count}}</h1>
+        
+        <hr>
+        <p class="thelink"><a href="{{url_for('user_quotes')}}" class="view">View All</a></p>
+
+{%else%}
+        <p class="mt-lg-3 ">Quotes Requested</p>
+        <hr>
+        <h1 class="mynumber">0</h1>
+        <p>0 Complete 0 remain</p>
+        <hr>
+        <p class="thelink"><a href="{{url_for('user_quotes')}}" class="view">View all</a></p>
+{%endif%}
+    </div>
+
+
+</div>
+{%endblock%}

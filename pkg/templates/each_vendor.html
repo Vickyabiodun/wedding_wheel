@@ -1,0 +1,47 @@
+{%extends 'admin_layout.html'%}
+{%block content%}
+{%if eachvend%}
+{%for each in eachvend%}
+
+<div class="welcome mt-lg-5 ms-lg-5">
+<h4>{{each.vendor_name}}'s Details</h4>
+<hr>
+
+    
+<div class="row justify-content-start mt-lg-2">
+
+<div class="col-lg-11 quotes ms-lg-4">
+
+    <p>Name: {{each.vendor_name}} </p>
+    <p>Email: {{each.vendor_email}} </p>
+    <p>Phone Number: {{each.vendor_phone}} </p>
+    <p>Vendor's Specialty: {{each.vendor_specialty}} </p>
+    <p>Twitter: <a href="{{each.vendor_twitter}}"> {{each.vendor_twitter}}</a> </p>
+    <p>Instagram: <a href="{{each.vendor_ig}}"> {{each.vendor_ig}}</a> </p>
+    <p>Website: <a href="{{each.vendor_website}}"> {{each.vendor_website}}</a> </p>
+    <p>Other Links: <a href="{{each.vendor_other_links}}">{{each.vendor_other_links}}</a> </p>
+
+
+
+</div>
+
+
+</div>
+
+{%endfor%}
+{%else%}
+
+
+    <div>
+    
+    
+        <p>No Detail Found</p>
+        <p> </p>
+    
+    
+    </div>
+    
+
+{%endif%}
+
+{%endblock%}

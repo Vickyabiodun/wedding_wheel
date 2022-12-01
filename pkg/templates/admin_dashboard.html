@@ -1,0 +1,46 @@
+{%extends 'admin_layout.html'%}
+{%block content%}
+<div class="welcome mt-lg-5 ms-lg-5">
+
+<h4>Admin's Dashboard</h4>
+<hr>
+
+</div>
+
+<div class="row line1 justify-content-around">
+    <div class="col-lg-3 line1div  ms-lg-3">
+        {%if vendorslist%}
+        <p class="mt-lg-3">All Vendors</p>
+        <hr>
+        <h1 class="mynumber">{{vendorslist|count}}</h1>
+        <hr>
+        <p class="thelink"><a href="{{url_for('thevendors')}}" class="view">View all</a></p>
+        {%endif%}
+    </div>
+    <div class="col-lg-3 line1div">
+        {%if clist%}
+
+        <p class="mt-lg-3">All Couple</p>
+        <hr>
+        <h1 class="mynumber">{{clist|count}}</h1>
+        <hr>
+        <p class="thelink"><a href="{{url_for('thecouples')}}" class="view">View all</a></p>
+
+        {%endif%}
+
+    </div>
+    <div class="col-lg-3 line1div">
+        {%if alllisting%}
+        <p class="mt-lg-3">All Listing</p>
+        <hr>
+        <h1 class="mynumber">{{alllisting|count}}</h1>
+        <hr>
+        <p class="thelink"><a href="{{url_for('listings')}}" class="view">View all</a></p>
+        {%endif%}
+
+    </div>
+
+
+</div>
+
+{%endblock%}

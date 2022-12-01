@@ -1,0 +1,105 @@
+{%extends 'dashboard_vendor.html'%}
+
+{%block content%}
+<div class="welcome mt-lg-5 ms-lg-5 mt-4 ms-4">
+<h4>Hi {{getvendor.vendor_name}}!</h4>
+<p>Here’s what’s happening with your wedding venue business today..</p>
+<hr>
+
+
+</div>
+
+<div class="row line1 justify-content-around mt-lg-5 mt-5">
+    <div class="col-lg-3 col-10 line1div2  ms-lg-3 mb-4">
+        <div class="row">
+            <div class="col-6 col-md-5">
+                {%if all_listings%}
+                
+                <h1 class="mynumber mt-lg-3">{{all_listings|count}}</h1>
+                <p class="mt-lg-3 col-12">Total Listed Items</p>
+                {%else%}
+                <h1 class="mynumber mt-lg-3">0</h1>
+                <p class="mt-lg-3">Total Listed Items</p>
+                {%endif%}
+
+            </div>
+            
+            
+            <div class="col-6 col-md-5">
+                <i class="fa-regular fa-note-sticky fa-3x venitem mt-lg-4 ms-lg-5"></i>
+            </div>
+            
+        </div>
+            <hr>
+            <p class="thelink"><a href="{{url_for('listeditem')}}" class="view">View all</a></p>
+    </div>
+    <div class="col-lg-3 col-10 line1div2 mb-4">
+        <div class="row">
+            <div class="col-6 col-md-5">
+                {%if all_quote%} 
+                
+                <h1 class="mynumber mt-lg-3">{{all_quote|count}}</h1>
+                <p class="mt-lg-3">Requested Quotes</p>
+                {%else%}
+                <h1 class="mynumber mt-lg-3">0</h1>
+                <p class="mt-lg-3">Requested Quotes</p>
+                {%endif%}
+
+    
+            </div>
+            
+            
+            <div class="col-6 col-md-5">
+                <i class="fa-regular fa-comments fa-3x venitem mt-lg-4 ms-lg-5"></i>
+            </div>
+            
+        </div>
+            <hr>
+            <p class="thelink"><a href="{{url_for('requested_quotes')}}" class="view">View all</a></p>
+
+
+
+    </div>
+    <div class="col-lg-3 col-10 line1div2  ms-lg-3 mb-4">
+    <div class="row">
+        {%if all_reviews%} 
+        <div class="col-6 col-md-5">
+            <h1 class="mynumber mt-lg-3">{{all_reviews|count}}</h1>
+            <p class="mt-lg-3">Reviews</p>
+
+        </div>
+        
+        
+        <div class="col-6 col-md-5">
+            <i class="fa-solid fa-users fa-3x venitem mt-lg-4 ms-lg-5"></i>
+
+        </div>
+        
+    </div>
+    {%else%}
+    <div class="row">
+         
+        <div class="col-6 col-md-5">
+            <h1 class="mynumber mt-lg-3">0</h1>
+            <p class="mt-lg-3">Reviews</p>
+
+        </div>
+        
+        
+        <div class="col-6 col-md-5">
+            <i class="fa-solid fa-users fa-3x venitem mt-lg-4 ms-lg-5"></i>
+
+        </div>
+        
+    </div>
+    {%endif%}
+        <hr>
+        <p class="thelink"><a href="{{url_for('vendor_reviews')}}" class="view">View all</a></p>
+
+
+    </div>
+
+
+</div>
+
+{%endblock%}

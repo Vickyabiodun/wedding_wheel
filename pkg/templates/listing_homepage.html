@@ -1,0 +1,195 @@
+{%extends 'layout.html'%}
+{%block content%}
+
+
+
+{%if clickeditem%}
+{%for items in clickeditem%}
+<div class="row justify-content-center listtittle">
+
+
+<div class="col-lg-8 col-10">
+    <h4> {{items.title}}</h4>
+    <p>{{items.address}},<span>{{items.vendorstate.state_name}}</span></p>
+
+
+</div>
+
+
+</div>
+<div class="row justify-content-center layercapacity">
+    <div class="col-lg-3 col-10 layercapacity1">
+        <p> N {{items.price}}<br>Start From </p>
+
+
+    </div> 
+    <div class="col-lg-3 col-10 layercapacity1">
+        <p>{{items.capacity}}+ <br>Guests</p>
+        
+
+
+    </div> 
+    <div class="col-lg-3 col-10 layercapacity1">
+        <button class="btn wish mt-lg-3 mt-3 mb-3" type="submit">
+     
+            <a href="/wishlist_list/{{items.listing_id}}">
+                <i class="fa-regular fa-heart"></i>
+    
+                ADD TO WISHLIST
+            </a>
+           
+        </button>
+
+
+    </div> 
+
+</div>    
+<div class="row themainlist justify-content-center">
+    <div class="col-lg-5 mt-lg-5 col-12 listcontent">
+        <h5 class="mt-lg-3 mt-3">Product Description</h5>
+        <hr>
+        
+        <div>
+            <img src="/static/uploads/{{items.gallery_of_venue}}" width="100%" height="300"/>
+        </div>
+        <p>{{items.description}}</p>
+    </div>   
+    <div class="col-lg-2 col-12 ms-lg-5 mt-lg-5 listcontent">
+        <form method="post" action="/listing_homepage/{{items.listing_id}}" class="p-3">
+            <h5>Request Quote</h5>
+            <hr>
+            <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
+
+            {{myfrm.name ( class_="mb-lg-3 col-12 mb-3", placeholder="Name")}} 
+            {{myfrm.email (  class_="mb-lg-3 col-12 mb-3",placeholder="Email")}} 
+            {{myfrm.phone ( class_="mb-lg-3 col-12 mb-3", placeholder="Phone")}}
+            {{myfrm.wedding_date ( class_="mb-lg-3 col-12 mb-3")}} 
+            {{myfrm.message (  class_=" mt-lg-3 mb-lg-3 col-12 mb-3",placeholder="Brief Explanation")}} 
+            {{myfrm.submit ( class_=" col-lg-12 mb-lg-2  col-12 mb-3 p-2 requestbtn",value='Request Quote')}}                     
+
+
+
+
+        </form>
+    
+    </div>  
+
+</div>   
+<div class="row themainlist justify-content-center">
+  <div class="col-lg-5 col-12 listcontent1">
+    <h5 class="mt-lg-4 mt-2">Write your Reviews</h4>
+    <hr>
+    
+
+    <form id="rev">
+      {{reviewfrm.thereview.label (class_="col-lg-12 mb-lg-3 col-12 mb-3")}}
+      {{reviewfrm.thereview ( class_="mb-lg-3 col-lg-11 col-10 mb-3 t1", placeholder="Type your review here", id="drev")}}
+      {{reviewfrm.rname.label (class_="col-lg-5 mb-lg-2 col-5 mb-2")}}
+      {{reviewfrm.remail.label (class_="col-lg-5 mb-lg-2 ms-lg-5 col-5 mb-2")}}
+      <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
+
+      {{reviewfrm.rname ( class_="mb-lg-3 col-lg-5 t1 col-5 mb-3", placeholder="Name", id="dname")}}
+
+      {{reviewfrm.remail ( class_="mb-lg-3 col-lg-5 t1 ms-lg-5 col-5 ms-2 mb-3", placeholder="Type your review here", id="dmail")}}
+
+      <button class="btn  redbtnitem mt-lg-3 col-10" id="allrevbtn" type="button">
+                submit Review
+        
+    </button> 
+    </form>
+    
+
+  </div> 
+    
+
+  
+  <div class="col-lg-2 ms-lg-5 col-12 vcontent">
+          <p class="mt-3 ms-2">Name: {{items.vendor_listing.vendor_name}}</p>
+          <p class="ms-2">Business Name: {{items.vendor_listing.vendor_business_name}}</p>
+
+          <p class="ms-2"><i class="fa-solid fa-envelope"></i> {{items.vendor_listing.vendor_email}}</p>
+          <img src="/static/uploads/{{items.vendor_listing.vendor_image}}" class="img-fluid listimg mb-lg-5">
+  </div>  
+
+</div>      
+<div class="row themainlist justify-content-center">
+
+  <div class="col-lg-5 col-12 listcontent1"id="allrevs">
+
+    <h5 class="mt-lg-4 mt-3">Reviews</h4>
+    <hr>
+    {%if revs%}
+    
+    {%for rev in revs%}
+   
+      <p>{{rev.rating}}</p>
+      <p style="color: red">By: {{rev.couple_name}}</p>
+
+   <hr>  
+      
+      {%endfor%}
+      {%else%}
+      <h5 class="mt-lg-4">Reviews</h4>
+        <hr>
+        {%endif%}  
+
+
+  </div> 
+  
+  
+  <div class="col-lg-2 ms-lg-5  vcontent1" >
+   
+ </div>  
+</div>
+{%endfor%}
+
+{%endif%}
+
+    
+   
+{%endblock%}
+
+{%block js%}
+{%if clickeditem%}
+{%for revs in clickeditem%}
+<script type="text/javascript">
+  $("document").ready(function(){
+      
+      $('#allrevbtn').click(function(){
+          var data2send =$('#rev').serialize()
+          $.ajax({
+              url:"/reviews/{{revs.listing_id}}",
+              data:data2send,
+              type:"post",
+              dataType:"json",
+              beforeSend:function(){
+                  $('#allrevbtn').html('please wait')
+              }, 
+              success:function(response){
+                  $("#drev").val('')
+                  $("#dmail").val('')
+                  $("#dname").val('')
+                 
+                  $("#allrevbtn").html('send review')
+
+                  $('#allrevs').append(response["Review"] + '<p style="color:red">' + "By"+response["Posted By"] +'</p>' )
+
+              },
+                  
+
+          
+              error:function(errmsg){
+                  console.log(errmsg)
+                  
+
+              }
+          })
+      })
+  })
+
+</script>
+{%endfor%}
+
+{%endif%}
+
+{%endblock%}

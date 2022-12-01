@@ -1,0 +1,67 @@
+{%extends 'dashboard_layout.html'%}
+{%block content%}
+<div class="welcome mt-lg-5 ms-lg-5 mt-4 ms-2">
+<h4>Find Vendors</h4>
+{%if getcouple%}
+<p>Hello {{getcouple.couple_name}}! You can now search vendors by category and location.</p>
+<hr>
+{%endif%}
+
+</div>
+
+        <form class="mt-lg-3 mt-3" action="{{url_for('couple_choice')}}" method="post">
+            <div class="row justify-content-center ms-lg-5 search">
+
+                
+                <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
+
+                <!-- select -->
+                <select class="mb-lg-3 col-11  col-lg-12 mb-3" name="cat" id="cat" >
+                    <option value="select cat">Please Select Category</option>
+
+                    {%if category%}
+                        {%for i in category%}
+
+                        <option value="{{i.cat_id}}">{{i.cat_name}}</option>
+                        {%endfor%}
+
+                    {%endif%}  
+                </select>
+          
+            
+                <!-- select -->
+            
+
+                <select class="mb-lg-3 col-11 mb-3 col-lg-12" name="local"  id="location">
+                    <option value="Location" data-display="Location"> Vendor Location</option>
+                    {%if state%}
+                        {%for s in state%}
+
+                        <option value="{{s.state_id}}">{{s.state_name}}</option>
+                        {%endfor%}
+
+                    {%endif%}  
+                </select>
+          
+
+            <!-- button -->
+            
+      
+        </div>
+        <div class="row justify-content-start ms-lg-5 search">
+
+            <div class="col-lg-2 col-10  mb-3">
+
+                <button class="btn btn-danger  p-2"id="firstsearch" type="submit">Search Here</button>
+            </div>
+        </div>
+        </form>
+      
+
+
+
+</div>
+{%endblock%}
+{% block js %}
+ 
+{%endblock%}

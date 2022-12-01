@@ -1,0 +1,41 @@
+{%extends 'admin_layout.html'%}
+{%block content%}
+{%if eachcouple%}
+{%for each in eachcouple%}
+
+<div class="welcome mt-lg-5 ms-lg-5">
+<h4>{{each.couple_name}}'s Details</h4>
+<hr>
+
+    
+<div class="row justify-content-start mt-lg-2">
+
+<div class="col-lg-11 quotes ms-lg-4">
+
+    <p>Name: {{each.couple_name}} </p>
+    <p>Email: {{each.couple_email}} </p>
+    <p>Phone Number: {{each.couple_phone}} </p>
+
+
+</div>
+
+
+</div>
+
+{%endfor%}
+{%else%}
+
+
+    <div>
+    
+    
+        <p>No Detail Found</p>
+        <p> </p>
+    
+    
+    </div>
+    
+
+{%endif%}
+
+{%endblock%}

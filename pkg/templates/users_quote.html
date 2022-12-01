@@ -1,0 +1,42 @@
+{%extends 'dashboard_layout.html'%}
+{%block content%}
+<div class="welcome mt-lg-5 ms-lg-5">
+<h4>Quotes Sent</h4>
+<p>You can find all quotes sent.</p>
+<hr>
+{%if quotesent%}
+{%for quoted in quotesent%}
+    {%if quoted.user_id == theuser%}
+<div class="row justify-content-center mt-lg-5 mb-lg-3 mb-3 mt-4listed">
+
+<div class="col-lg-11 col-10 quotes">
+
+
+    <h5 class="mt-lg-3 mt-3">Interested in: {{quoted.items.title}}</h5>
+    <p>Message sent: {{quoted.couple_message}} </p>
+    <p>Time Sent: {{quoted.date_sent}} </p>
+
+
+</div>
+
+
+</div>
+{%endif%}
+
+{%endfor%}
+{%else%}
+
+
+    <div>
+    
+    
+        <p>No quote Sent</p>
+        <p> </p>
+    
+    
+    </div>
+    
+
+{%endif%}
+
+{%endblock%}

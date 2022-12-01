@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Home - Wedding Wheel</title>
+    <meta charset="utf-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!--This is my facebook meta tag-->
+    <meta property="og:site_name" content="">
+    <meta property="og:type" content="web application">
+    <meta property="og:image" content="">
+    <meta property="og:url" content="">
+
+    <!--This is my twitter meta tag-->
+    <meta name="twitter:site" content="">
+    <meta name="twitter:title" content="">
+    <meta name="twitter:description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!--bootstrap-->    
+
+	<link href="/static/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
+    <!--fontawesome-->    
+
+	<link href='/static/fontawesome/css/all.css' rel='stylesheet'>
+  <!--Google font-->
+  <link href="https://fonts.googleapis.com/css?family=Rubik:300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+<!--My stylesheet-->
+<link href="/static/home.css" rel="stylesheet">
+
+
+</head>
+<body>
+  <!--logo navigation bar-->
+  <div class="container-fluid">
+    <div class="bgimg">
+      <div class="row sample">
+        <div class="first justify-content-between mb-lg-5" id="top">
+        
+          <div class="col-lg-2 col-sm-1 col-1 mt-2 ">
+            <img src="/static/image/logo.png"  class="img-fluid mt-lg-2">
+            
+          </div>
+          <!--The navigation bar-->
+          <div class="col-lg-8 col-sm-10 col-11 first justify-content-end ">
+            <ul class="nav">
+              <li class="nav-item mt-2">
+              <a class="nav-link active" aria-current="page" href="{{url_for('hompage')}}" id="home">Home</a>
+              </li>
+              
+              
+              <li class="nav-item mt-2" id="navblog">
+              <a class="nav-link" href="#call">Blog</a>
+              </li>
+              <li class="nav-item mt-2" id="navprice">
+                <a class="nav-link" href="#call">Pricing</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link btn btn-danger btn-lg mt-sm-2 mt-2" href="{{url_for('couple_singup')}}">Couple</a>
+              </li>
+              
+              <li class="nav-item">
+              <a class="nav-link btn btn-danger btn-lg mt-sm-2 mt-2 ms-2" href="{{url_for('vendor_singup')}}">Vendor</a>
+              </li>
+              
+            </ul>
+            
+          </div>
+        </div>
+        <!--The second section-->
+        <div class="row second flex-column mt-sm-5 mb-sm-5">
+            <div class="col-lg-6  align-self-center mt-sm-3" id="second1">
+              <h1> Wedding Wheel - Plan with ease</h1>
+              
+            </div>
+            <div class="col-lg-6  align-self-center" id="second2">
+              <p>Browse the best wedding vendors in your area — from venues and photographers, to <br>
+                wedding planners, caterers, florists and more.
+
+              </p>
+            </div>
+            <!--The search bar section-->
+            <div class="col-lg-7  align-self-center search-form" id="second3">
+                <form class="form-row justify-content-center mt-lg-3" action="{{url_for('couple_login')}}" method="post">
+                  <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
+
+                    <div class="col-lg-5 col-sm-4 col-5">
+                        <!-- select -->
+                        <select class="wide" name="cat">
+                            <option value="select cat"> Select Category</option>
+
+                            {%if category%}
+                                {%for i in category%}
+
+                                <option value="{{i.cat_id}}">{{i.cat_name}}</option>
+                                {%endfor%}
+
+                            {%endif%}  
+                        </select>
+                    </div>
+                    <div class="col-lg-5 col-5">
+                        <!-- select -->
+                        <select class="wide" name="local">
+                            <option value="Location" data-display="Location"> Vendor Location</option>
+                            {%if state%}
+                                {%for s in state%}
+
+                                <option value="{{s.state_id}}">{{s.state_name}}</option>
+                                {%endfor%}
+
+                            {%endif%}  
+                        </select>
+                    </div>
+                    <!-- button -->
+                    <div class="col-lg-2 col-2" >
+                        <button class="btn btn-danger  p-2"id="firstsearch" type="submit">Search</button>
+                    </div>
+                </form>
+              
+            </div>
+
+        </div>
+        <hr id="hr1">
+        <!--The last section of the header-->
+        <div class="row third mt-lg-5 justify-content-center" >
+          
+          <div class="col-lg-2 col-sm-6 col-md-4 col-4">
+            <i class="fa fa-clipboard-list fa-1x mt-lg-3 firsti"></i>
+            <span>170+ Listing</span>
+            
+          </div>
+          <div class="col-lg-2 col-sm-6 col-md-4 col-4">
+            <i class="fa fa-map-marker-alt fa-1x mt-lg-3 firsti"></i>
+            <span>36+ States</span>
+            
+          </div>
+          <div class="col-lg-2" id="somestats">
+            <i class="fa fas fa-heart fa-1x mt-lg-3 firsti"></i>
+            <span>168+ Weddings</span>
+            
+          </div>
+          <div class="col-lg-2" id="somestats2">
+            <i class="fa fa-smile fa-1x mt-lg-3 firsti"></i>
+            <span>1000+ Users</span>
+            
+          </div>
+          
+        </div>
+        
+      </div> 
+    </div>
+      <!--The category section-->
+    <div>
+      <div class="row category">
+        <div class="col-lg-12 col-12 browse justify-content-center">
+            <h1>Browse Vendors by Category</h1>
+            <p id="browsep">You can browse all venues by category with thumbnail image and category name.</p>
+        </div>
+      </div>
+      <div class="picture1 row justify-content-around">
+          <div class="p1 col-lg-3 col-sm-7 col-10 " id="florist">
+            <img src="/static/image/florist.jpg"  width="300" height="300" alt="wedding florist">
+            <div class="overlay">Wedding Florist</div>
+          </div>
+          <div class="p1 col-lg-3" id="wedphoto">
+            <img src="/static/image/photo.jpg" width="300" height="300" alt="wedding photographers">
+            <div class="overlay">Wedding photographers</div>
+
+          </div>
+          <div class="p1 col-lg-3"  id="weddingvenue">
+            <img src="/static/image/venue.jpg" width="300" height="300" alt="wedding venue">
+            <div class="overlay">Wedding Venue</div>
+
+          </div>
+        </div>
+        <div class="picture2 row justify-content-around">
+          <div class="p2 col-lg-3 col-sm-7 col-10">
+            <img src="/static/image/makeup.jpg" width="300" height="300" alt="Makeup artiste">
+            <div class="overlay">Makeup artiste</div>
+
+          </div>
+          <div class="p2 col-lg-3" id="thedj">
+            <img src="/static/image/dj.jpg" width="300" height="300" alt="wedding Dj">
+            <div class="overlay">Wedding Dj</div>
+
+          </div>
+          <div class="p2 col-lg-3" id="caterers">
+           <img src="/static/image/food.jpg" width="300" height="300" alt="wedding caterers">
+            <div class="overlay">Wedding caterers</div>
+
+          </div>
+        </div>
+        
+      </div>
+      <div class="row justify-content-center">
+        <div class="btncategory col-lg-2 col-sm-3 col-5">
+          <a href="{{url_for('couple_login')}}"><button type="button" class="btn btncategory1 col-lg-12">View All Categories </button></a>
+        </div>
+      </div>
+    </div>
+      <!--Couples Wedding Tools section-->
+     <div class="tools"> 
+        <div class="row justify-content-center toolhead" >
+          <div class="col-lg-7 browse col-11">
+            <h1>Couple Wedding Planning Tools</h1>
+              <p id="browsep">  Leverage on our unique tools to plan your event .</p>
+          </div>
+        </div>
+
+        <div class="row thetools justify-content-between">
+          <div class="col-lg-2 col-sm-3 col-5">
+            <p  class="atool"><i class="fa-regular fa-note-sticky fa-6x  ms-sm-4 "></i></p>
+            <p class="ms-lg-5 ms-sm-4 ptool">Checklist</p>
+          </div>
+          <div class="col-lg-2 col-sm-3 col-5">
+            <p class="atool"><i class="fa-solid fa-envelope-open-text fa-6x  ms-sm-4"></i></p>
+            <p class="ms-lg-5 ms-sm-4 ptool">Guest List</p>
+
+          </div>
+          
+          <div class="col-lg-2 col-sm-3 col-5">
+            <p href="#" class="atool"><i class="fa-solid fa-people-roof fa-6x ms-sm-4"></i></p>
+            <p class="ms-lg-4  ms-sm-4 ptool">Vendor Manager</p>
+
+          </div>
+          <div class="col-lg-2" id="tool">
+            <p href="#" class="atool"><i class="fa-solid fa-calculator fa-6x  ms-sm-4"></i></p>
+            <p class="ms-lg-5 ms-sm-4 ptool">Budget</p>
+
+          </div>
+          <div class="col-lg-2 col-sm-3 col-5">
+            <p href="#" class="atool"><i class="fa-regular fa-calendar-check fa-6x  ms-sm-4"></i></p>
+            <p class="ms-lg-5 ms-sm-4 ptool">RSVP</p>
+
+          </div>
+          
+        </div>
+
+        <div class="row justify-content-center mt-sm-5">
+
+          <div class="btntool col-lg-2 col-sm-4 col-6">
+            <button type="button" class="btn btntool1 col-lg-12 mb-lg-2 ms-sm-2"><a href="{{url_for('couple_singup')}}" id="log1">Start Planning</a></button>
+            <p class="mt-sm-2">Already have an account? <a href="{{url_for('couple_login')}}" id="log"><span >Login</span></a></p>
+  
+          </div>
+
+        </div>
+        
+
+      </div>
+      <!--How it works section-->
+      <div class="background">
+        <div class="bg2">
+          <div class="row how">
+            <div class="col-lg-12 col-sm-12 col-12" id="bg1">
+              <h1> How it Works</h1>
+              <p>
+                Find, shortlist, get free quote and book vendors conveniently.
+              </p>
+            </div>
+          <div class="row howimg justify-content-around" >
+            <div class="col-lg-2 col-sm-4 col-4">
+              <i class="fa-regular fa-calendar fa-sm-5x fa-1x secondi"></i>
+              <i class="fa-solid fa-1 fa-sm-2x numi"></i>
+            </div>
+            <div class="col-lg-2 col-sm-4 col-4">
+              <i class="fa-solid fa-envelope-open-text fa-sm-5x fa-1x secondi"></i>
+              <i class="fa-solid fa-2 fa-sm-2x numi"></i>
+            </div>
+            <div class="col-lg-2 col-sm-4 col-4">
+              <i class="fa-solid fa-crown fa-sm-5x fa-1x secondi"></i>
+              <i class="fa-solid fa-3 fa-sm-2x numi"></i>
+            </div>
+          </div>
+        
+          <div class="row howimg2 justify-content-center ">
+            <div class="col-lg-4 col-sm-4 col-4">
+              <h4>Browse Vendors</h4>
+              <p>
+                Search through the different categories available to access various vendors.
+              </p>
+            </div>
+            <div class="col-lg-4 col-sm-4 col-4">
+              <h4> Request Quote</h4>
+              <p>
+                Initiate Converation and request quote for your upcoming event.
+              </p>
+            </div>
+            <div class="col-lg-4 col-sm-4 col-4">
+              <h4> Book a Vendor</h4>
+              <p>
+                Finalize conversations and book vendors for your event.
+              </p>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+
+
+
+    <div class="tools" id="lastblog">
+        <div class="row justify-content-center realwedingheader">
+
+          <!--Real wedding section-->
+          <div class="col-lg-7 mt-sm-5">
+            <h1 > Real Weddings</h1>
+            <p>
+              Real inspiration from the real wedding couple. Get ideas for grooms and brides.
+
+
+            </p>
+          </div>
+        </div>
+          <div class="row realimg justify-content-around mb-lg-5">
+            <div class="col-lg-3 imgdiv">
+              <a href="#"><img src="/static/image/blog7.jpg"  class="img-fluid imgname" alt="couples"></a>
+              <a href="#" class="names"><p>James & Daniella</p></a>
+              <span class="date">10 June, 2022</span><span class="location"><i class="fa-solid fa-location-dot"></i>Enugu</span>
+
+              
+
+            </div>
+            <div class="col-lg-3 imgdiv">
+              <a href="#"><img src="/static/image/couple4.jpg"  class="img-fluid imgname" alt="couples"></a>
+              <a href="#" class="names"><p>Leo & Sarah</p></a>
+              <span class="date">07 May, 2022</span><span class="location"><i class="fa-solid fa-location-dot"></i>Lagos</span>
+
+
+            </div>
+            <div class="col-lg-3 imgdiv " >
+              <a href="#"><img src="/static/image/couple5.jpg"  class="img-fluid imgname" alt="couples"></a>
+
+              <a href="#" class="names"><p>Mike & Vera</p></a>
+              <span class="date">07 May, 2022</span><span class="location"><i class="fa-solid fa-location-dot"></i>Oyo</span>
+            </div>
+
+          </div>
+          
+          
+        
+        <div class="row justify-content-center">
+          <div class="btncategory col-lg-2 realbtn ">
+            <a href="#"></a><button type="button" class="btn btncategory1 col-lg-12 ">See More Real Weddings</button></a>
+          </div>
+
+        </div>
+
+    </div>
+        <!--Reviews Section-->
+      <div class=" reviews ">
+        <div class="row reviews justify-content-center">
+          <div class="col-lg-6 col-12" id="real">
+            <h1> Real Testimonials </h1>
+            <p>
+              Find out what about real couple have to say about related.
+
+
+            </p>
+          </div>
+        </div>
+        <div class="row justify-content-around mb-lg-5 mb-5 review1div">
+            <div class="col-lg-5 col-sm-8 col-12 review1 ">
+            {%if firstrev%}
+              <h4 class="revname">{{firstrev.couple_name}} </h4>
+              <i><p class="ms-lg-3">{{firstrev.rating}}</p></i>
+
+              <hr>
+              
+
+              <a href="#"><img src="/static/image/review.jpg"  class="imgreview" alt="couples"></a>
+              <span class="job">Wedding Planner</span>
+              {%endif%}
+
+            </div>
+            <div class="col-lg-5 review1" id="lastrev">
+              {%if secrev%}
+              <h4 class="revname">{{secrev.couple_name}} </h4>
+              <i><p class="ms-lg-3">{{secrev.rating}}</p></i>
+              <hr>
+              <a href="#"><img src="/static/image/review2.jpg"  class="imgreview" alt="couples"></a>
+              <span class="job">Food Vendor</span>
+              {%endif%}
+            </div>
+            
+
+          </div>
+          
+      
+        <div class="row justify-content-center">
+          <div class="btncategory col-lg-2 col-sm-3 col-5 realbtn">
+            <a href="#"></a><button type="button" class="btn btncategory1 col-lg-12 col-12 ">See More Reviews</button></a>
+          </div>
+
+        </div>
+      </div>
+        <!--The Blog Section-->
+      <div class="tools2">
+          <div class="row justify-content-center"> 
+
+            <div class="col-lg-6" id="real">
+              <h1>  Weddings Tips and News</h1>
+              <p>
+                The ultimate wedding guide and tips for wedding couples.
+  
+              </p>
+            </div>
+
+          </div>
+          
+          <div class="row realimg2 justify-content-around">
+            <div class="col-lg-3  col-sm-5 col-10 imgdiv">
+              <a href="#"><img src="/static/image/blog5.jpg"  class= "imgblog" width="250" height="400" alt="couples"></a>
+              <a href="#" class="name"><p>How we pulled our wedding off on a budget</p></a>
+              
+              <span class=" ms-lg-2"> <a href="#" class="admin "> By Admin</a></span> <span class=" ms-lg-5">Date</span>
+             <p class="blogtext">
+              Pulling off a great wedding involves a great amount of spending. However, we are not the norm. 
+          
+             </p>
+
+            </div>
+            <div class="col-lg-3 col-sm-5 imgdiv" id="secblog">
+              
+              <a href="#"><img src="/static/image/blog6.jpg"  class= "imgblog" width="250" height="400" alt="couples"></a>
+              <a href="#" class="name"><p>A dreamy wedding in the most luxurious city</p></a>
+              <span class=" ms-lg-2"> <a href="#" class="admin "> By Admin</a></span> <span class=" ms-lg-5">Date</span>
+              <p class="blogtext">
+                Pulling off a great wedding involves a great amount of spending. However, we are not the norm. 
+            
+               </p>
+
+            </div>
+            <div class="col-lg-3 imgdiv " id="lastwed">
+              <a href="#"><img src="/static/image/blog8.jpg"  class= "imgblog" width="250" height="400" alt="couples"></a>
+              <a href="#" class="name"><p>A must read for every couple planning an event</p></a>
+              <span class=" ms-lg-2"> <a href="#" class="admin "> By Admin</a></span> <span class=" ms-lg-5">Date</span>
+              <p class="blogtext">
+                Pulling off a great wedding involves a great amount of spending. However, we are not the norm. 
+            
+               </p>
+            </div>
+          </div>
+          <div class="row justify-content-center mt-sm-2">
+
+            <div class="btncategory col-lg-2 col-sm-3 col-5 realbtn">
+              <a href="#"><button type="button" class="btn btncategory1 col-lg-12 ">View All Articles</button></a>
+            </div>
+          </div>
+        </div>
+       
+        
+        <!--The Listing Section-->
+        <div class="row listingrow justify-content-around">
+            <div class=" col-lg-5 col-sm-5 col-7 listingtextbox">
+              <h1>Submit your Listing Right Now!</h1>
+              <p class="blogtext">
+                Thinking of getting your product to a large audience? Let's help you. 
+            
+               </p>
+            </div>
+            <div class="col-lg-2 col-sm-3 col-5 listingdiv">
+              <a href="{{url_for('vendor_singup')}}"><button type="button" class="btn col-sm-12 col-12 listingbtn">Submit Now</button></a>
+            </div>
+        </div>
+        <!--The social media section-->
+
+      <div class="row mediasec justify-content-around">
+          <div class=" col-lg-5 col-sm-12 col-12 connect mt-lg-2">
+            <h4>Would you like to connect with us?</h4>
+          </div>
+          
+          <div class="col-lg-3 col-sm-12 col-12">
+            <a href="#"><i class="fa-brands fa-square-facebook fa-3x"></i></a>
+            <a href="#"><i class="fa-brands fa-square-twitter fa-3x"></i></i></a>
+            <a href="#"><i class="fa-brands fa-square-google-plus fa-3x"></i></i></i></a>
+            <a href="#"><i class="fa-brands fa-square-instagram fa-3x"></i></i></a>
+            <a href="#"><i class="fa-brands fa-square-youtube fa-3x"></i></i></a>
+
+          </div>
+      </div>
+    <!--Footer section-->
+    
+      <div class="row footer justify-content-around">
+        <div class="col-lg-3 col-sm-3 col-6 footerdiv">
+          <img src="/static/image/logo.png" class=" mt-4">
+          <span class="logo1  mt-5">Wedding Wheel</span>
+          <p class="mb-lg-3 mt-lg-3">
+              Wedding Wheel is a wedding niched interaction platform where vendors and couples can interact and exchange value.
+          </p>
+          <p>
+            On our platform, you will enjoy unrivaled access to premium.
+          </p>
+        </div>
+        <div class="col-lg-2  col-sm-3 col-6  footerdiv">
+            <h4 class="mt-4">Contact Address</h4>
+            <p class="mt-lg-4">
+              <i class="fa-solid fa-location-dot"></i>
+              18th Street somewhere in Uk
+            </p>
+            <p>
+              <i class="fa-solid fa-phone-volume"></i>
+              +0-800-1234-123
+            </p>
+            <p>
+              <i class="fa-solid fa-envelope-circle-check"></i>
+              info@realwed.com
+            </p>
+
+        </div>
+        <div class="col-lg-2 col-sm-3 col-6 footerdiv" >
+          <h4 class="mt-4">About the Company</h4>
+          <p class="">
+            <a href="#">About Us</a>
+
+          </p>
+          <p class="">
+            <a href="#">Contact Us</a>
+
+          <p class="">
+            <a href="#">FAQ</a>
+
+          </p>
+          <p class="">
+            <a href="#">Pricing Plan</a>
+
+          <p class="">
+            <a href="#">Meet the team</a>
+          </p>
+
+
+        </div>
+        <div class="col-lg-2 col-sm-3 col-6 footerdiv" > 
+          <h4 class="mt-4">Subscribe to Newsletter</h4>
+          <input type="email" name="subscriber" placeholder="Enter Email Address" class="col-lg-11 col-sm-11 col-11 mt-lg-3">
+          <p class="mt-3"><a href="#"><button type="button" class="btn btncategory1 col-lg-6 ">Subscribe</button></a></p>
+
+
+        </div>
+      </div>
+      
+      
+      <div class="row copyright justify-content-end ">
+        <div class="col-lg-5 ">
+          <span>
+            © 2022 Wedding Wheel. All Rights Reserved.
+
+          </span>
+          <a href="#top" class="ms-lg-3"><i class="fa-solid fa-arrow-up fa-2x"></i></a>
+        </div>
+
+
+      </div>
+    </div>
+        
+     
+
+
+
+
+      
+   
+
+    <script type='text/javascript' src='/static/js/jquery-3.6.1.min.js'></script>
+    <script type='text/javascript'>
+      
+		
+	</script>
+
+</body>
+
+
+</html>

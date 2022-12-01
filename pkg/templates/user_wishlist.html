@@ -1,0 +1,69 @@
+{%extends 'dashboard_layout.html'%}
+{%set wishes=get_flashed_messages()%}
+{%block content%}
+<div class="welcome mt-lg-5 ms-lg-5 mt-4 ms-2">
+{%if getcouple%}
+
+<h4>My Wishlist</h4>
+<p>Hello {{getcouple.couple_name}}! The wishlist is great way to keep track your wedding vendor and their service availablity in your wishlist board.</p>
+<hr>
+
+{%endif%}
+</div>
+{%if wishes%}
+{%for w in wishes%}
+<p>{{w}}</p>
+{%endfor%}
+{%endif%}
+    {%if mywish%}
+        {%for items in mywish%}
+    <div class="row justify-content-start ms-lg-5 mb-lg-5 mt-lg-5 listedwish mb-4 mt-3">
+        
+        <div class="col-lg-2 col-6 mt-4" >
+    
+            <a href="/listing_homepage/{{items.wish_listing_id}}">
+    
+                <img src="/static/uploads/{{items.wish_item.gallery_of_venue}}" class="img-fluid">
+            </a>
+        </div>
+
+            <div class="col-lg-6 col-6 mt-4">
+    
+                    <a href="/listing_homepage/{{items.wish_listing_id}}">
+    
+                <h5> {{items.wish_item.title}}</h5>
+                <p>Price From: {{items.wish_item.price}} </p>
+                <p>Capacity: {{items.wish_item.capacity}}+ </p>
+
+                 </a>
+            </div>
+            
+    
+            <div class="col-lg-2  ">
+                
+                <button  class="btn btn-danger mt-lg-5 mt-4 mb-3"><a href="/couple_wish/delete/{{items.wish_id}}" id="removewish">Remove Item</a>  </button>  
+           
+        </div>
+            
+    
+           
+           
+            
+    </div>   
+
+    {%endfor%}
+    {%else%}
+    <div class="ms-lg-5">
+    
+        
+
+    <p> Sorry, no item found in your wishlist as you are yet to add any. Click below to search for vendors and add items.</p>
+    <p><a href="{{url_for('find_vendors')}}">
+        <button  class="btn btn-danger "> Find Vendors</button>  
+    </a></p>
+
+    
+</div>
+    {%endif%}
+
+{%endblock%}

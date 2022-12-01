@@ -1,0 +1,37 @@
+{%extends 'admin_layout.html'%}
+{%block content%}
+<div class="welcome mt-lg-5 ms-lg-5">
+<h4>All listing</h4>
+<hr>
+{%if alllisting%}
+{%for list in alllisting%}
+    
+<div class="row justify-content-start mt-lg-2 listed">
+
+<div class="col-lg-10 quotes">
+
+    <p><a href="/admin_listing_hompage/{{list.listing_id}}">{{list.title}}</a> </p>
+
+
+</div>
+
+
+</div>
+
+{%endfor%}
+{%else%}
+
+
+    <div>
+    
+    
+        <p>No quote Sent</p>
+        <p> </p>
+    
+    
+    </div>
+    
+
+{%endif%}
+
+{%endblock%}

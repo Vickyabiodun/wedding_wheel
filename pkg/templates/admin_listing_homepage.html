@@ -1,0 +1,182 @@
+{%extends 'ad_layout.html'%}
+{%block content%}
+
+<div class="row topcarousel mt-lg-3">
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="/static/image/c1.jpg" class="d-block w-100" width="2000" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="/static/image/c2.jpg" class="d-block w-100"  alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="/static/image/c3.jpg" class="d-block w-100"  alt="...">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+</div>
+
+{%if clickeditem%}
+{%for items in clickeditem%}
+<div class="row justify-content-center listtittle">
+
+
+<div class="col-7">
+    <h4> {{items.title}}</h4>
+    <p>{{items.address}},<span>{{items.vendorstate.state_name}}</span></p>
+
+
+</div>
+
+</div>
+<div class="row justify-content-center layercapacity">
+    <div class="col-lg-3 layercapacity1">
+        <p> N {{items.price}}<br>Start From </p>
+
+
+    </div> 
+    <div class="col-lg-3 layercapacity1">
+        <p>{{items.capacity}}+ <br>Guests</p>
+        
+
+
+    </div> 
+    <div class="col-lg-3 layercapacity1">
+        <p>Reviews will be here </p>
+
+
+    </div> 
+
+</div>    
+<div class="row themainlist justify-content-center">
+    <div class="col-lg-5 mt-lg-5 listcontent">
+        <h5 class="mt-lg-3">Product Description</h5>
+        <hr>
+        
+        <div>
+            <img src="/static/uploads/{{items.gallery_of_venue}}" width="100%" height="300"/>
+        </div>
+        <p>{{items.description}}</p>
+    </div>   
+    <div class="col-lg-2 ms-lg-5 mt-lg-5 listcontent">
+        <form method="post" action="/listing_homepage/{{items.listing_id}}" class="p-3">
+            <h5>Request Quote</h5>
+            <hr>
+            <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
+
+            {{myfrm.name ( class_="mb-lg-3", placeholder="Name")}} 
+            {{myfrm.email (  class_="mb-lg-3",placeholder="Email")}} 
+            {{myfrm.phone ( class_="mb-lg-3", placeholder="Phone")}}
+            {{myfrm.wedding_date }} 
+            {{myfrm.message (  class_=" mt-lg-3 mb-lg-3",placeholder="Brief Explanation")}} 
+            {{myfrm.submit ( class_=" col-lg-12 mb-lg-2  p-2 requestbtn",value='Request Quote')}}                     
+
+
+
+
+        </form>
+    
+    </div>  
+
+</div>   
+<div class="row themainlist justify-content-center">
+  <div class="col-lg-5 listcontent">
+    <h5 class="mt-lg-4">Write your Reviews</h4>
+    <hr>
+    
+
+    <form id="rev" method="post" action="/reviews/{{items.listing_id}}">
+      {{reviewfrm.thereview.label (class_="col-lg-12 mb-lg-3")}}
+      {{reviewfrm.thereview ( class_="mb-lg-3 col-lg-11 t1", placeholder="Type your review here")}}
+      {{reviewfrm.rname.label (class_="col-lg-5 mb-lg-2")}}
+      {{reviewfrm.remail.label (class_="col-lg-5 mb-lg-2 ms-lg-5")}}
+      <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
+
+      {{reviewfrm.rname ( class_="mb-lg-3 col-lg-5 t1", placeholder="Name")}}
+
+      {{reviewfrm.remail ( class_="mb-lg-3 col-lg-5 t1 ms-lg-5", placeholder="Type your review here")}}
+
+      <button class="btn  redbtnitem mt-lg-3" type="submit">
+                submit Review
+        
+    </button>  
+    </form>
+    
+
+  </div>   
+
+  
+  <div class="col-lg-2 ms-lg-5  vcontent">
+     <p> <img src="/static/image/logo.png" width="80" height="50" class=" mt-2"></p> 
+          <p >Name: {{items.vendor_listing.vendor_name}}</p>
+          <p >Business Name: {{items.vendor_listing.vendor_business_name}}</p>
+
+          <p ><i class="fa-solid fa-envelope"></i> {{items.vendor_listing.vendor_email}}</p>
+  </div>  
+
+</div>      
+
+{%endfor%}
+
+{%endif%}
+
+    
+   
+{%endblock%}
+
+{%block js%}
+<!-- <script type="text/javascript">
+
+$(document).ready(function(){
+
+			
+$('#btn1').click(function(){
+
+    var com = $('#t1').val();
+    var name = $('#t2').val();
+    var mail = $('#t3').val();
+
+      $('.t1').val('');
+
+
+  
+
+
+
+
+
+
+
+
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
+});
+
+</script> -->
+{%endblock%}

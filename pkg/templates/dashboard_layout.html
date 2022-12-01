@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='/static/bootstrap/css/bootstrap.css' rel='stylesheet'>
+    <link href='/static/fontawesome/css/all.css' rel='stylesheet'>
+    <!--My stylesheet-->
+    <link href="/static/couple.css" rel="stylesheet">
+    
+   </head>
+<body>
+<div>
+  {%if getcouple%}
+  
+<div class="nav row  justify-content-between">
+  <div class="col-lg-2 col-6">
+    <a href="{{url_for('hompage')}}" class="mylog">
+    <img src="/static/image/logo.png" alt="logo" height="30">
+    <span class="logo">WedWheel</span>
+    </a>
+  </div>
+  
+  <div class="col-lg-2 col-6 name1">
+    <p class="pbaby pt-lg-1">
+      <img src="static/uploads/{{getcouple.couple_image}}" alt="Add Profile Image" class="pic" width="50" height="40" >
+
+      <span class="baby"><a href="#" class="baby">{{getcouple.couple_name}}</a></span>
+    </p>
+    <div class="dropdown-display">
+      <a href="{{url_for('main_user_dashboard')}}">Dashboard</a>
+      <a href="{{url_for('find_vendors')}}">View Vendors</a>
+
+      <a href="{{url_for('wishlist_dashboard')}}">Wishlist</a>
+      <a href="{{url_for('todo_dashboard')}}">To Do List</a>
+      <a href="{{url_for('user_quotes')}}">Sent Quotes</a>
+
+      <a href="{{url_for('budgetplanner')}}">Budget</a>
+      <a href="{{url_for('couple_guestlist')}}">Guestlist</a>
+      <a href="{{url_for('guest_seat')}}">Seating Table</a>
+      <a href="{{url_for('real_wedding')}}">Real Wedding</a>
+
+      <a href="{{url_for('couple_profile')}}">My Profile</a>
+      <a href="{{url_for('couple_logout')}}">Logout</a>
+
+    </div>
+    
+   
+  
+  
+  </div>
+
+</div>
+
+<!--The Sidebar and--><!--The centre design-->
+<div class="row themain">
+
+  <div class="col-lg-2 maindiv1" id="sidebar">
+    
+      <ul class="nav-links">
+        <li class="mt-lg-3">
+          <p>
+            <img src="static/uploads/{{getcouple.couple_image}}" alt="Add Profile Image" class="pic img-fluid" >
+          
+          </p>
+          <p class="baby">{{getcouple.couple_name}}
+          
+            <a href="{{url_for('couple_profile')}}" class="">       
+               Edit Profile
+            </a>      
+          </p>
+        </li>
+        <li class="mt-lg-5">
+          <a href="{{url_for('main_user_dashboard')}}">
+            <i class="fa-solid fa-compass"></i>
+            <span class="">Dashboard</span>
+          </a>
+        </li>
+        <hr>
+        <li>
+          <a href="{{url_for('find_vendors')}}">
+            <i class="fa-solid fa-maximize"></i>
+            <span class="">View Vendors</span>
+          </a>
+        </li>
+        <hr>
+        <li>
+          <a href="{{url_for('wishlist_dashboard')}}">
+            <i class="fa-solid fa-heart"></i>
+            <span class="">My Wishlist</span>
+          </a>
+        </li>
+        <hr>
+        <li>
+          <a href="{{url_for('user_quotes')}}">
+            <i class="fa-solid fa-user"></i>
+            <span class="">Quotes Requested</span>
+          </a>
+        </li>
+        <hr>
+        <li>
+          <a href="{{url_for('todo_dashboard')}}">
+            <i class="fa-solid fa-list"></i>
+            <span class="">To Do List</span>
+          </a>
+        </li>
+        <hr>
+    
+        <li>
+          <a href="{{url_for('budgetplanner')}}">
+            <i class="fa-solid fa-calculator"></i>
+            <span class="">Budget</span>
+          </a>
+        </li>
+        <hr>
+    
+        <li>
+          <a href="{{url_for('couple_guestlist')}}" class="active">
+            <i class="fa-solid fa-users-line"></i>
+            <span class="">Guestlist</span>
+          </a>
+        </li>
+        <hr>
+    
+        <li>
+          <a href="{{url_for('guest_seat')}}">
+            <i class="fa-solid fa-table"></i>
+            <span class="">Seating Table</span>
+          </a>
+        </li>
+        <hr>
+    
+    
+        <li>
+          <a href="{{url_for('real_wedding')}}">
+            <i class="fa-solid fa-images"></i>
+            <span class="">Real Wedding</span>
+          </a>
+        </li>
+        <hr>
+    
+        <li>
+          <a href="{{url_for('couple_profile')}}">
+            <i class="fa-solid fa-user"></i>
+            <span class="">My Profile</span>
+          </a>
+        </li>
+        <hr>
+    
+        <li class="log_out">
+          <a href="{{url_for('couple_logout')}}">
+            
+            <i class="fa-solid fa-right-from-bracket"></i>
+            <span class="">Log out</span>
+          </a>
+        </li>
+        <hr>
+    
+      </ul>
+      
+    
+
+
+
+  </div>
+  
+  <div class="col-lg-10 maindiv2">
+
+  {%block content%}
+
+  {%endblock%}
+  </div>
+
+
+</div>
+
+
+
+</div>
+{%endif%}
+  <script type='text/javascript' src='/static/js/jquery-3.6.1.min.js'></script>
+  <script type='text/javascript' src='/static/bootstrap/js/bootstrap.js'></script>
+  <!--the select section-->
+  <script type='text/javascript' src="/static/js/fastclick.js"></script>
+  <script type='text/javascript' src="/static/js/magicsuggest.js"></script>
+   <script type='text/javascript' src="/static/js/jquery.slimscroll.js"></script>
+   <script type='text/javascript' src="/static/js/jquery.nice-select.min.js"></script>
+   <script type='text/javascript' src="/static/js/offcanvas.js"></script>
+   <script type='text/javascript' src="/static/js/jquery.slidereveal.js"></script>
+
+    {% block js %}
+ 
+    {%endblock%}
+
+</body>
+</html>
+

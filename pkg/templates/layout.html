@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Home - Wedding Wheel</title>
+    <meta charset="utf-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!--This is my facebook meta tag-->
+    <meta property="og:site_name" content="">
+    <meta property="og:type" content="web application">
+    <meta property="og:image" content="">
+    <meta property="og:url" content="">
+
+    <!--This is my twitter meta tag-->
+    <meta name="twitter:site" content="">
+    <meta name="twitter:title" content="">
+    <meta name="twitter:description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!--bootstrap-->    
+
+	<link href="/static/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
+    <!--fontawesome-->    
+
+	<link href='/static/fontawesome/css/all.css' rel='stylesheet'>
+  <!--Google font-->
+  <link href="https://fonts.googleapis.com/css?family=Rubik:300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+
+
+
+  
+    <style type="text/css">
+      @media all and (max-width: 760px) {
+
+        #logo{
+        display:none;
+          }
+
+
+        }
+       .first{
+           min-height: 50px;
+            display: flex;
+            font-family:'Rubik', sans-serif;
+            color: black !important;
+            font-weight: 100;
+          }
+          .nav-link{
+            color: black !important;
+            font-family:'Rubik', sans-serif;
+            font-size: 14px;
+          }
+        
+          .logo{
+            font-size: 25px;
+            color: red;
+          }
+         
+        
+      
+      .listingrow{
+            display:flex;
+            min-height:200px;
+            background-color:#FF4D4D;
+            
+          }
+      .listingdiv{
+            min-height:100px;
+            background-color:#FF4D4D;
+            margin-top:6%;
+          }
+      .listingtextbox{
+            min-height: 100px;
+            margin-top:4%;
+            margin-bottom:4%;
+            color:white;
+            text-align: center;
+          }
+      .listingbtn{
+            min-height:50px;
+            background-color:#00A28E;
+            color:white;
+            font-size: 22px;
+  
+      }
+      .mediasec{
+            background-color:#38363C;
+            min-height:60px;
+            color:white;
+            text-align: center;
+  
+          }
+      .fa-brands{
+              color:white;
+            }
+      .fa-brands:hover{
+              color:#FF4D4D;
+  
+            }
+      .footer{
+        min-height:400px;
+        display: flex;
+        background-color: #302D33;
+      }
+      .footerdiv{
+        min-height:250px;
+        margin-top:5%
+      }
+      .btncategory1{
+          background-color: #E14648;
+          color: white;
+          text-align: center;
+          font-size: 12px;
+          font-family: 'Rubik', sans-serif;
+        }
+      .footerdiv p{
+        color: #98969B;
+        font-family: 'Rubik', sans-serif;
+        font-size: 12px;
+        font-weight: 100;
+        text-align: left;
+      }
+      .logo1{
+        color: white;
+        font-family: 'Rubik', sans-serif;
+        font-size: 22px;
+        font-weight: 500;
+      }
+      .footerdiv h4{
+        color: white;
+        font-size: 16px;
+        
+  
+      }
+      .footerdiv p i{
+        color:#FF4D4D;
+      }
+      .footerdiv p a{
+        text-decoration: none;
+        color: #98969B;
+  
+      }
+      .footerdiv p a:hover{
+        color:#FF4D4D;
+      }
+      .footerdiv input{
+        min-height: 40px;
+        background-color: #444248;
+      }
+      .copyright{
+          background-color:#252428;
+          min-height:40px;
+          display: flex;
+        }
+        .copyright span{
+          color: #98969B;
+          font-size:16px;
+          font-weight:100px;
+          font-family:'Rubik', sans-serif;
+        }
+        .copyright i{
+          color:#FF4D4D;
+        }
+        .topcarousel{
+            min-height: 450px;
+            
+        }
+        .listtittle{
+            min-height:80px;
+            display:flex;
+        }
+        .wish{
+            font-size: 12px !important;
+            font-weight:100;
+            border: 1px solid #FF4D4D ;
+            height: 30px;
+        }
+       .wish a{
+        color:#FF4D4D !important;
+        text-decoration: none;
+       }
+        .wish:hover{
+            background-color:#FF4D4D;
+            color:white !important;
+        }
+        .wish a:hover{
+          color:white !important;
+
+        }
+        .layercapacity{
+            display: flex;
+            min-height: 60px;
+            color: black;
+            font-size: 14px;
+            font-weight: 300;
+            background-color:white;
+
+        }
+        .layercapacity1{
+            text-align: center;
+            border: 1px solid #98969B;
+
+        }
+        .themainlist{
+            background-color: #F6F6F6;
+            display: flex;
+            min-height: 400px;
+        }
+        .listcontent{
+            background-color:white;
+            border: 1px solid #F6F6F6;
+            min-height: 400px;
+            margin-bottom: 1%;
+            font-weight: 200;
+        }
+        .listcontent h5{
+          font-size: 20px;
+          font-weight: 200;
+        }
+        .vcontent{
+          background-color:white;
+            border: 1px solid #F6F6F6;
+            min-height: 300px;
+            margin-bottom: 1%;
+        }
+        .vcontent1{
+          text-align: center;
+            border: 1px solid #F6F6F6;
+            min-height: 300px;
+            margin-bottom: 1%;
+        }
+        .listcontent1{
+            background-color:white;
+            border: 1px solid #F6F6F6;
+            min-height: 400px;
+            margin-bottom: 1%;
+            font-weight: 200;
+        }
+        .listcontent1 h5{
+          font-size: 20px;
+          font-weight: 200;
+        }
+        .requestbtn{
+            background-color:#FF4D4D;
+            color: white;
+            border-radius: 10px;
+            border: 1px solid #FF4D4D;;
+
+        }
+        .listedpage{
+            background-color:white;
+            border:1px solid #F3F3F3 !important;
+            color:#6F6D72 !important;
+            font-weight: 100;
+            text-decoration: none !important;
+            font-size: 14px;
+            }
+            .emptylistedpage{
+            background-color:white;
+            border:1px solid #F3F3F3 !important;
+            color:#6F6D72 !important;
+            font-weight: 100;
+            text-decoration: none !important;
+            font-size: 14px;
+            min-height:300px;
+            }
+           
+            .listedpage a{
+            color:#6F6D72 !important;
+            font-weight: 100;
+            text-decoration: none !important;
+            font-size: 14px;
+            }
+            #rev{
+              font-weight: 100;
+              font-family:'Rubik', sans-serif;
+              font-size: 14px;
+            }
+            .redbtnitem{
+            background-color:#E93B3B;
+            color: white;
+            border-radius: 5px;
+            font-size: 16px;
+            border: 1px solid #E93B3B;
+        }
+        .listimg{
+          border-radius: 50%;
+        }
+        #allrevs{
+          font-weight: 100;
+          font-size: 14px;
+          font-style: italic;
+
+        }
+    </style>
+
+</head>
+<body>
+  <!--logo navigation bar-->
+  <div class="container-fluid">
+   
+     
+        <div class="first justify-content-between " id="top">
+        
+          <div class="col-lg-4 col-3 col-sm-4 col-md-4" id="logo">
+            <img src="/static/image/logo.png"  width="50" height="45" >
+            <span class="logo">WedWheel</span>
+            
+          </div>
+
+          <!--The navigation bar-->
+          <div class="first col-lg-4 col-12 col-sm-4 col-md-5">
+            <ul class="nav ">
+              <li class="nav-item mt-2">
+              <a class="nav-link active" aria-current="page" href="{{url_for('hompage')}}" id="home">Home</a>
+              </li>
+              
+              
+              <li class="nav-item">
+                <a class="nav-link btn btn-danger  mt-lg-2" href="{{url_for('main_user_dashboard')}}">My Dashboard</a>
+              </li>
+              
+              <li class="nav-item">
+              <a class="nav-link btn btn-danger  mt-lg-2 ms-lg-2 ms-3" href="{{url_for('couple_logout')}}">Logout</a>
+              </li>
+              <li class="nav-item mt-2">
+                <p></p>
+                </li>
+              
+            </ul>
+            
+          </div>
+        </div>
+        <!--End of Nav bar-->
+        {%block content%}
+        
+   
+      
+        {%endblock%}
+        
+        <!--The social media section-->
+
+      <div class="row mediasec justify-content-around">
+        <div class=" col-lg-5 col-sm-12 col-12 connect mt-lg-2">
+          <h4>Would you like to connect with us?</h4>
+        </div>
+        
+        <div class="col-lg-3 col-sm-12 col-12">
+          <a href="#"><i class="fa-brands fa-square-facebook fa-3x"></i></a>
+          <a href="#"><i class="fa-brands fa-square-twitter fa-3x"></i></i></a>
+          <a href="#"><i class="fa-brands fa-square-google-plus fa-3x"></i></i></i></a>
+          <a href="#"><i class="fa-brands fa-square-instagram fa-3x"></i></i></a>
+          <a href="#"><i class="fa-brands fa-square-youtube fa-3x"></i></i></a>
+
+        </div>
+    </div>
+  <!--Footer section-->
+  
+    <div class="row footer justify-content-around">
+      <div class="col-lg-3 col-sm-3 col-6 footerdiv">
+        <img src="/static/image/logo.png" class=" mt-4">
+        <span class="logo1  mt-5">Wedding Wheel</span>
+        <p class="mb-lg-3 mt-lg-3">
+            Wedding Wheel is a wedding niched interaction platform where vendors and couples can interact and exchange value.
+        </p>
+        <p>
+          On our platform, you will enjoy unrivaled access to premium.
+        </p>
+      </div>
+      <div class="col-lg-2  col-sm-3 col-6  footerdiv">
+          <h4 class="mt-4">Contact Address</h4>
+          <p class="mt-lg-4">
+            <i class="fa-solid fa-location-dot"></i>
+            18th Street somewhere in Uk
+          </p>
+          <p>
+            <i class="fa-solid fa-phone-volume"></i>
+            +0-800-1234-123
+          </p>
+          <p>
+            <i class="fa-solid fa-envelope-circle-check"></i>
+            info@realwed.com
+          </p>
+
+      </div>
+      <div class="col-lg-2 col-sm-3 col-6 footerdiv" >
+        <h4 class="mt-4">About the Company</h4>
+        <p class="">
+          <a href="#">About Us</a>
+
+        </p>
+        <p class="">
+          <a href="#">Contact Us</a>
+
+        <p class="">
+          <a href="#">FAQ</a>
+
+        </p>
+        <p class="">
+          <a href="#">Pricing Plan</a>
+
+        <p class="">
+          <a href="#">Meet the team</a>
+        </p>
+
+
+      </div>
+      <div class="col-lg-2 col-sm-3 col-6 footerdiv" > 
+        <h4 class="mt-4">Subscribe to Newsletter</h4>
+        <input type="email" name="subscriber" placeholder="Enter Email Address" class="col-lg-11 col-sm-11 col-11 mt-lg-3">
+        <p class="mt-3"><a href="#"><button type="button" class="btn btncategory1 col-lg-6 ">Subscribe</button></a></p>
+
+
+      </div>
+    </div>
+    
+    
+    <div class="row copyright justify-content-end ">
+      <div class="col-lg-5 ">
+        <span>
+          © 2022 Wedding Wheel. All Rights Reserved.
+
+        </span>
+        <a href="#top" class="ms-lg-3"><i class="fa-solid fa-arrow-up fa-2x"></i></a>
+      </div>
+
+
+    </div>
+  </div>
+      
+   
+
+     
+
+
+
+
+      
+   
+
+    <script type='text/javascript' src='/static/js/jquery-3.6.1.min.js'></script>
+    <script type='text/javascript' src='/static/bootstrap/js/bootstrap.js'></script>
+
+    {%block js%}
+    {%endblock%}
+</body>
+
+
+</html>

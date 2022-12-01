@@ -1,0 +1,41 @@
+{%extends 'dashboard_layout.html'%}
+{%set t= get_flashed_messages()%}
+{%block content%}
+<div class="welcome mt-lg-5 ms-lg-5">
+  
+
+<h4>Table Seating Planner</h4>
+<p>Table Seating Planner allows you to plan your guest sitting table arrangements for wedding events.</p>
+<hr>
+<div class="row addnewtask justify-content-end">
+    <div class="col-lg-2">              
+
+          <button class="btn addbtn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Add New Table</button>
+
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+                    <div class="offcanvas-header">
+
+                        <p class="offcanvas-title" id="offcanvasRightLabel">Create Table</p>
+                        <button type="button" class="btn-close " data-bs-dismiss="offcanvas" aria-label="Close" class="col-lg-12 mb-lg-2"></button>
+
+                    </div>
+                    <div class="offcanvas-body">
+                        <form action="{{url_for('guest_seat')}}" method="post" class="todotext">
+                           
+
+                        </form>
+
+                    </div>
+            </div>
+    </div>
+
+</div>
+
+{%endblock%}
+
+{%block js%}
+<script>
+    
+    </script>
+    
+{%endblock%}

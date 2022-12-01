@@ -1,0 +1,166 @@
+{%extends 'dashboard_layout.html'%}
+{%set coupfeedback =get_flashed_messages()%}
+
+{%block content%}
+<div class="welcome mt-lg-5 ms-lg-5 mt-4 ms-2">
+{%if getcouple%}
+
+<h4>Update Profile</h4>
+<p>Hello {{getcouple.couple_name}}! Update your wedding information, profile photo, and personal informations.
+
+</p>
+<hr>
+
+{%endif%}
+</div>
+{%if coupfeedback%}
+{%for cf in coupfeedback%}
+<p class="alert alert-danger">{{cf}}</p>
+{%endfor%}
+{%endif%}
+<div class="row profile justify-content-center">
+    <div class="col-lg-3 col-12 col-md-3">
+        <div class=" col-lg-12 p1" id="option1">
+            <p class="mt-lg-2 ms-lg-2 ms-2"> <a href="#" class="profileheada">Profile</a></p>
+        </div>
+        <div class=" col-lg-12 p1" id="option2">
+            <p class="mt-lg-2 ms-lg-2 ms-2">  <a href="#" class="profileheada">Change Password</a></p>
+
+        </div>
+
+    </div>
+    <div class="col-lg-8  col-12 col-md-8 theprofile" id="form1">
+        
+        <form method="post" action="{{url_for('couple_profile')}}" class="p-3" enctype="multipart/form-data" >
+            <div class=" col-lg-12">
+                <p class="mt-lg-2 ms-lg-2 profilehead">Profile</p>
+            </div>
+            <hr>
+            <div>
+                {{updfrm.name.label}}
+                {{updfrm.name ( class_="mb-lg-3 col-lg-12 p-2 col-12 mb-3")}} 
+
+            </div>
+            <div>
+                {{updfrm.email.label}}
+
+                {{updfrm.email (  class_="mb-lg-3 col-lg-12 p-2 col-12 mb-3")}} 
+
+            </div>
+            <div>
+                {{updfrm.phone.label}}
+
+                {{updfrm.phone ( class_="mb-lg-3 col-lg-12 p-2 col-12 mb-3", placeholder="Phone")}}
+
+            </div>
+            <div>
+                {{updfrm.couple_location.label}}
+                <select class="mb-lg-3 col-lg-12 p-2 col-12 mb-3 mt-2" name="local"  id="location">
+                    <option value="Location" data-display="Location"> Choose Location</option>
+                    {%if state%}
+                        {%for s in state%}
+
+                        <option value="{{s.state_id}}">{{s.state_name}}</option>
+                        {%endfor%}
+
+                    {%endif%}  
+                </select>
+
+            </div>
+            
+            <div>
+                {{updfrm.couple_img.label}}
+
+                {{updfrm.couple_img (class_="file choosefile col-lg-12 mb-lg-5 mt-lg-3 p-2 col-12 mb-3 mt-2" )}}                     
+                <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
+
+            </div>
+
+            <div>
+                {{updfrm.submit ( class_=" btn col-lg-12 mb-lg-3  p-2 col-12 mb-3 requestbtn")}}                     
+
+            </div>
+
+
+        </form>
+    
+        
+    </div>
+    <div class="col-lg-8  col-md-8 col-12 theprofile"  id="form2">
+    
+        <form method="post" action="{{url_for('coup_changepwd')}}" class="p-3" >
+            <div class=" col-lg-12">
+                <p class="mt-lg-2 ms-lg-2 profilehead">Password Change</p>
+            </div>
+            <hr>
+            <div>
+                <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
+
+                {{chgpwd.current_pass.label}}
+                {{chgpwd.current_pass ( class_="mb-lg-3 col-lg-12 p-2 col-12 mb-3",)}} 
+
+            </div>
+            <div>
+                {{chgpwd.new_pass.label}}
+
+                {{chgpwd.new_pass (  class_="mb-lg-3 col-lg-12 p-2 col-12 mb-3")}} 
+
+            </div>
+            <div>
+                {{chgpwd.confirm_pass.label}}
+
+                {{chgpwd.confirm_pass ( class_="mb-lg-3 col-lg-12 p-2 col-12 mb-3")}}
+
+            </div>
+            
+            
+
+            <div>
+
+                {{chgpwd.submit ( class_=" btn col-lg-12 mb-lg-3  p-2 col-12 mb-3 requestbtn")}}                     
+
+            </div>
+
+
+        </form>
+    </div>
+</div>
+{%endblock%}
+{% block js %}
+ <script type="text/javascript">
+    $(document).ready(function(){
+			
+			$('#option1').click(function(){
+
+				$('#form1').show(2,function(){
+				$('#form2').hide()
+
+
+				});
+
+				
+
+
+			});
+			$('#option2').click(function(){
+
+				$('#form2').show(2,function(){
+				$('#form1').hide()
+
+
+				});
+
+				
+
+
+			});
+
+			
+
+
+		});
+		
+
+
+ </script>
+{%endblock%}

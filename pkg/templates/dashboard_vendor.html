@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='/static/bootstrap/css/bootstrap.css' rel='stylesheet'>
+    <link href='/static/fontawesome/css/all.css' rel='stylesheet'>
+    <!--My stylesheet-->
+<link href="/static/vendor.css" rel="stylesheet">
+   </head>
+<body >
+<div >
+  {%if getvendor%}
+<div class="nav row  justify-content-between" >
+  <div class="col-lg-2 col-6">
+    <img src="/static/image/logo.png" class="" height="30">
+    <span class="logo">WedWheel</span>
+    
+  </div>
+  
+  <div class="col-lg-2 col-6 name1">
+    <p class="pbaby pt-lg-2">
+      <img src="static/uploads/{{getvendor.vendor_image}}" alt="Add Profile Image" class="pic" width="50" height="40" >
+
+      <span class="baby"><a href="#" class="baby">{{getvendor.vendor_name}}</a></span>
+    </p>
+    <div class="dropdown-display col-4">
+      <a href="{{url_for('vendor_dashboard')}}">Dashboard</a>
+      <a href="{{url_for('listeditem')}}">My Listed Item</a>
+      <a href="{{url_for('requested_quotes')}}">Request Quotes</a>
+      <a href="{{url_for('vendor_reviews')}}">Reviews</a>
+      <a href="{{url_for('vendorprofile')}}">Update Profile</a>
+      <a href="{{url_for('vendor_logout')}}">Logout</a>
+
+    </div>
+    
+   
+  
+  
+  </div>
+  
+</div>
+
+<!--The Sidebar and--><!--The centre design-->
+<div class="row themain">
+
+  <div class="col-lg-2 maindiv1" id="vendhome">
+    
+      <ul class="nav-links">
+        <li class="mt-lg-3">
+          <p>
+            <img src="static/uploads/{{getvendor.vendor_image}}" alt="Add Profile Image" class="pic img-fluid" >
+
+          </p>
+          <p class="ms-lg-3 ms-1">
+            <span class="baby">{{getvendor.vendor_name}}</span>
+
+            <a href="{{url_for('vendorprofile')}}" class="edit">       
+               Edit Profile
+            </a>      
+          </p>
+        </li>
+        <li class="mt-lg-5">
+          <a href="{{url_for('vendor_dashboard')}}">
+            <i class="fa-solid fa-compass"></i>
+            <span class="">Dashboard</span>
+          </a>
+        </li>
+        <hr>
+    
+        <li>
+          <a href="{{url_for('listeditem')}}">
+            <i class="fa-solid fa-list-ul"></i>
+            <span class="">My Listed Item</span>
+          </a>
+        </li>
+        <hr>
+    
+        
+    
+        <li>
+          <a href="{{url_for('requested_quotes')}}">
+            <i class="fa-solid fa-check-to-slot"></i>
+            <span class="">Request Quotes</span>
+          </a>
+        </li>
+        <hr>
+    
+        <li>
+          <a href="{{url_for('vendor_reviews')}}" class="active">
+            <i class="fa-regular fa-comments"></i>
+            <span class="">Reviews</span>
+          </a>
+        </li>
+        <hr>
+    
+        <li>
+          <a href="{{url_for('vendorprofile')}}">
+            <i class="fa-solid fa-user"></i>
+            <span class="">Update Profile</span>
+          </a>
+        </li>
+        <hr>
+    
+        <li class="log_out">
+          <a href="{{url_for('vendor_logout')}}">
+            
+            <i class="fa-solid fa-right-from-bracket"></i>
+            <span class="">Log out</span>
+          </a>
+        </li>
+        <hr>
+    
+      </ul>
+      
+    
+
+
+
+  </div>
+  <div class="col-lg-10 maindiv2">
+
+  {%block content%}
+
+  {%endblock%}
+  </div>
+
+
+</div>
+
+{%endif%}
+
+</div>
+  <script type='text/javascript' src='/static/js/jquery-3.6.1.min.js'></script>
+  <script type='text/javascript' src='/static/bootstrap/js/bootstrap.js'></script>
+
+  
+    {% block js %}
+ 
+    {%endblock%}
+
+</body>
+</html>
+

@@ -1,0 +1,79 @@
+{%extends 'dashboard_layout.html'%}
+{%set t= get_flashed_messages()%}
+{%block content%}
+<div class="welcome mt-lg-5 ms-lg-5 mt-4 ms-2  t3">
+  
+
+<h4>Real Wedding</h4>
+<p>Submit your real wedding photos and vendor details. Share your story of big day</p>
+<hr>
+{%if t%}
+{%for wedr in t%}
+<p class="alert alert-danger">{{wedr}}</p>
+{%endfor%}
+{%endif%}
+<div>
+    <p>Upload Your Real Wedding</p>
+        <hr>
+    <form action="{{url_for('real_wedding')}}" method="post"  class="realwed"enctype="multipart/form-data">
+        <hr>
+        {{wed.featured_image.label (class_=" col-lg-11 mb-lg-2 ms-lg-3 col-12 mb-2 ms-2 required" )}}
+        {{wed.featured_image (class_="choosefile col-lg-11 mb-lg-2 p-2 ms-lg-3 col-11 mb-2 ms-2" )}}
+        <hr>
+        {{wed.vend_cat.label  (class_="col-lg-5 mb-lg-2  ms-lg-3 col-5 ms-2 mb-2 required" )}}
+        {{wed.add_vendor.label  (class_="col-lg-5 mb-lg-2  ms-lg-3 col-5 ms-2 mb-3 required" )}}
+
+        <select class="col-lg-5 ms-lg-3 p-lg-2 col-5 ms-2 mb-2 p-2" name="vendor">
+            <option value="">Select Vendor Category</option>
+
+            {%if myvend%}
+            {%for vend in myvend%}
+
+            <option value="{{vend.cat_name}}">{{vend.cat_name}}</option>
+            {%endfor%}
+            {%else%}
+            <option value=""></option>
+
+            {%endif%}
+        </select>
+        {{wed.add_vendor  (class_="col-lg-6 ms-lg-2 mb-lg-2 p-lg-1 col-5 ms-2 mb-3 p-1" , placeholder="Enter Vendor's name")}}
+
+        <hr>
+        {{wed.vend_cat.label  (class_="col-lg-5 mb-lg-2  ms-lg-3 col-5 ms-2 mb-2")}}
+        {{wed.add_vendor2.label  (class_="col-lg-5 mb-lg-2  ms-lg-3 col-5 ms-2 mb-2")}}
+
+        <select class="col-lg-5 ms-lg-3 p-lg-2 col-5 ms-2 mb-2 p-2" name="vendor2">
+            <option value="">Select Vendor Category</option>
+
+            {%if myvend%}
+            {%for vend in myvend%}
+
+            <option value="{{vend.cat_name}}">{{vend.cat_name}}</option>
+            {%endfor%}
+            {%else%}
+            <option value=""></option>
+
+            {%endif%}
+        </select>
+    
+        <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
+        {{wed.add_vendor2  (class_="col-lg-6 ms-lg-2 mb-lg-2 p-lg-1 col-5 ms-2 mb-3 p-1" , placeholder="Enter Vendor's name" )}}
+
+        
+
+        <hr>
+        {{wed.featured_story.label (class_="col-lg-10 mb-lg-2  ms-lg-3 col-12 mb-3 ms-1 " )}}
+        {{wed.featured_story  (class_="col-lg-11 mb-lg-2  p-lg-4 ms-lg-3 col-12 mb-3 ms-1 required" )}}
+        {{wed.submit (class_="addbtn btn mb-lg-2  ms-lg-3 p-2 col-12 col-md-11")}} 
+
+    </form>
+
+</div>
+
+
+
+{%endblock%}
+{%block js%}
+
+    
+{%endblock%}

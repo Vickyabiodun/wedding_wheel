@@ -1,0 +1,49 @@
+{%extends 'dashboard_vendor.html'%}
+
+{%block content%}
+<div class="welcome mt-lg-5 ms-lg-5 ms-4 mt-4">
+<h4>Requested Quotes</h4>
+<p>Check your requested quotes.</p>
+<hr>
+
+<div>
+    {%if itemquote%}
+    {%for quoted in itemquote%}
+        {%if quoted.items.vendor_listing_id == thevendor and quoted.listeditem_id !=None%}
+<div class="row justify-content-center mb-lg-3 mb-5 listed">
+    
+    <div class="col-lg-10 col-11">
+
+    
+        <h5 class="mt-lg-3">{{quoted.items.title}}</h5>
+        <hr>
+        <p> Name: {{quoted.couple_name}}</p>
+        <p>Email: {{quoted.couple_email}}</p>
+        <p>Phone: {{quoted.couple_phone}} </p>
+        <p>Message: {{quoted.couple_message}} </p>
+        <p>Date Requested: {{quoted.date_sent}} </p>
+
+        <button type="button" class="mb-lg-3 mt-lg-2 messagebtn"><a href="mailto:{{quoted.couple_email}}">Message {{quoted.couple_name}}</a></button>
+    </div>
+    
+ 
+</div>
+    {%endif%}
+    
+{%endfor%}
+
+{%endif%}
+
+
+    
+
+
+    
+
+</div>
+
+</div>
+
+
+
+{%endblock%}

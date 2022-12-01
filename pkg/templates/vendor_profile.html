@@ -1,0 +1,204 @@
+{%extends 'dashboard_vendor.html'%}
+{%set vendfeedback =get_flashed_messages()%}
+
+{%block content%}
+<div class="welcome mt-lg-5 ms-lg-5 mt-5 ms-4">
+<h4>My Profile</h4>
+<p>Change your profile image and information edit and save.</p>
+<hr>
+
+</div>
+{%if vendfeedback%}
+{%for vf in vendfeedback%}
+<p class="alert alert-danger">{{vf}}</p>
+{%endfor%}
+{%endif%}
+<div class="row mainlist2 justify-content-center">
+    <div class="col-12">
+        <form action="" method="post" enctype="multipart/form-data">
+            
+        </form>
+    </div>
+
+
+
+</div>
+
+<div class="row profile justify-content-center">
+    <div class="col-lg-3 col-12 col-md-3">
+        <div class=" col-lg-12 p1" id="option1">
+            <a href="#" class="profileheada"><p class="mt-lg-2 ms-lg-2 ms-2 mt-2">Profile</p></a>
+        </div>
+        <div class=" col-lg-12 p1" id="option2">
+            <a href="#" class="profileheada"><p class="mt-lg-2 ms-lg-2 ms-2 mt-2">Change Password</p></a>
+
+        </div>
+
+    </div>
+    <div class="col-lg-8 col-12 col-md-8 theprofile" id="form1">
+        
+        <form method="post" action="{{url_for('vendorprofile')}}" class="p-3" enctype="multipart/form-data" >
+            <div class=" col-lg-12">
+                <p class="mt-lg-2 ms-lg-2 profilehead">Profile</p>
+            </div>
+            <hr>
+            <div>
+                {{updfrm.name.label}}
+                {{updfrm.name ( class_="mb-lg-3 col-lg-12 p-2 col-12 mb-3")}} 
+
+            </div>
+            <div>
+                {{updfrm.email.label}}
+
+                {{updfrm.email (  class_="mb-lg-3 col-lg-12 p-2 col-12 mb-3")}} 
+
+            </div>
+            <div>
+                {{updfrm.phone.label}}
+
+                {{updfrm.phone ( class_="mb-lg-3 col-lg-12 p-2 col-12 mb-3", placeholder="Phone")}}
+
+            </div>
+            <div>
+                {{updfrm.vend_location.label}}
+                <select class="mb-lg-3 col-lg-12 p-2 col-12 mb-3" name="local"  id="location">
+                    <option value="Location" data-display="Location"> Choose Location</option>
+                    {%if state%}
+                        {%for s in state%}
+
+                        <option value="{{s.state_id}}">{{s.state_name}}</option>
+                        {%endfor%}
+
+                    {%endif%}  
+                </select>
+
+            </div>
+            
+            <div>
+                {{updfrm.vend_img.label}}
+
+                {{updfrm.vend_img (class_=" choosefile col-lg-12 mb-lg-3 mt-lg-3 p-2 col-12 mb-3 " )}}                     
+                <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
+                
+            </div>
+            <div>
+                {{updfrm.vend_specialty.label}}
+
+                {{updfrm.vend_specialty ( class_="mb-lg-3 col-lg-12 p-2 col-12 mb-3", placeholder="Vendor's Specialty")}}
+
+            </div>
+            <div>
+                {{updfrm.vend_instagram.label}}
+
+                {{updfrm.vend_instagram ( class_="mb-lg-3 col-lg-12 p-2 col-12 mb-3", placeholder="Instagram Link")}}
+
+            </div>
+            <div>
+                {{updfrm.vend_twitter.label}}
+
+                {{updfrm.vend_twitter ( class_="mb-lg-3 col-lg-12 p-2 col-12 mb-3", placeholder="Twitter Link")}}
+
+            </div>
+            <div>
+                {{updfrm.vend_website.label}}
+
+                {{updfrm.vend_website ( class_="mb-lg-3 col-lg-12 p-2 col-12 mb-3", placeholder="Website Link")}}
+
+            </div>
+            <div>
+                {{updfrm.vend_other_links.label}}
+
+                {{updfrm.vend_other_links ( class_="mb-lg-3 col-lg-12 p-2 col-12 mb-3", placeholder="Other Links")}}
+
+            </div>
+            <div>
+                {{updfrm.submit ( class_=" col-lg-12 mb-lg-3  p-2 col-12 mb-3 requestbtn")}}                     
+
+            </div>
+
+
+        </form>
+    
+        
+    </div>
+    <div class="col-lg-8 col-md-8 col-12 theprofile"  id="form2">
+    
+        <form method="post" action="{{url_for('vend_changepwd')}}" class="p-3" >
+            <div class=" col-lg-12">
+                <p class="mt-lg-2 ms-lg-2 profilehead">Password Change</p>
+            </div>
+            <hr>
+            <div>
+                <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
+
+                {{chgpwd.current_pass.label}}
+                {{chgpwd.current_pass ( class_="mb-lg-3 col-lg-12 p-2 col-12 mb-3",)}} 
+
+            </div>
+            <div>
+                {{chgpwd.new_pass.label}}
+
+                {{chgpwd.new_pass (  class_="mb-lg-3 col-lg-12 p-2 col-12 mb-3")}} 
+
+            </div>
+            <div>
+                {{chgpwd.confirm_pass.label}}
+
+                {{chgpwd.confirm_pass ( class_="mb-lg-3 col-lg-12 p-2 col-12 mb-3")}}
+
+            </div>
+            
+            
+
+            <div>
+
+                {{chgpwd.submit ( class_=" col-lg-12 mb-lg-3  p-2 col-12 requestbtn")}}                     
+
+            </div>
+
+
+        </form>
+    </div>
+</div>
+{%endblock%}
+{% block js %}
+ <script type="text/javascript">
+    $(document).ready(function(){
+			
+			$('#option1').click(function(){
+
+				$('#form1').show(2,function(){
+				$('#form2').hide()
+
+
+				});
+
+				
+
+
+			});
+			$('#option2').click(function(){
+
+				$('#form2').show(2,function(){
+				$('#form1').hide()
+
+
+				});
+
+				
+
+
+			});
+
+
+
+			
+
+
+		});
+		
+
+
+ </script>
+{%endblock%}
+

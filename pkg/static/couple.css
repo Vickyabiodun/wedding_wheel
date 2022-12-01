@@ -1,0 +1,454 @@
+@media all and (max-width: 990px) {
+
+    #sidebar,#thebudgets,#guests{
+    display:none;
+        }
+        
+ 
+ }
+ #removewish{
+    color: white !important;
+}
+div{
+    font-family: 'Rubik', sans-serif;
+}
+body{
+  color: #6F6D72 ;
+
+}
+.nav{
+    height: 50px;
+    display:flex;
+}
+.logo{
+    color:red;
+    font-size: 22px;
+    
+  }
+.name{
+  font-size: 14px;
+  font-weight: 100;
+  position: relative;
+  display: inline-block;
+
+}
+.name1{
+  font-size: 12px;
+  font-weight: 100;
+  position: relative;
+  display: inline-block;
+}
+.pic{
+  border: 1px solid grey;
+  border-radius: 20%;
+
+}
+.bell{
+  color:#FF4D4D;
+  display:inline-block;
+  
+
+}
+.listedwish{
+    color:#6F6D72 !important;
+    font-weight: 100;
+    text-decoration: none !important;
+    font-size: 12px;
+    border: 3px solid white;
+}
+.listedwish a{
+  color:#6F6D72 !important;
+  text-decoration: none;
+}        
+.dropdown-display {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 200px;
+  border-radius: 5%;
+  box-shadow: 0px 8px 16px 0px rgba(255, 133, 132,0.5);
+  z-index: 1;
+  background-color: white;
+  transition: display .6s ease;
+  overflow: hidden ;
+}
+.dropdown-display a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+
+}
+.dropdown-display a:hover {
+  background-color: #FEEFEE;
+  color: #FF4D4D ! important;
+}
+
+.name1:hover .dropdown-display {
+  display: block;
+}
+.name:hover .dropdown-display {
+  display: block;
+}
+
+
+.maindiv1{
+  height: 100%;
+  background: white;
+  
+}
+ul{
+  list-style-type: none;
+}
+.maindiv1 a{
+  text-decoration: none;
+  color: #6F6D72 !important;
+  font-size: 14px;
+  font-weight: 100;
+}
+a:hover{
+  color:#FF4D4D !important;
+}
+ul li i{
+  margin-right: 5%;
+}
+.line1{
+display:flex;
+min-height:270px
+}
+.line1div{
+  min-height:220px;
+  border: 1px solid #6F6D72 ;
+  background-color: white;
+  font-size: 14px;
+  font-weight: 100;
+  border-radius: 10px;
+}
+.mynumber{
+  font-weight:800;
+  color:black;
+}
+.thelink{
+  text-align: center;
+}
+.view{
+  text-decoration: none;
+  color: #6F6D72 !important;
+
+}
+.view:hover{
+  color:#FF4D4D;
+}
+.baby{
+color: #6F6D72 ;
+text-decoration: none;
+}
+.baby a {
+font-style: italic;
+text-decoration: underline;
+}
+.main{
+display:flex;
+height: 300px;
+}
+.pbaby{
+text-align: end;
+}
+.themain{
+min-height:1000px;
+}
+.maindiv2{
+background-color: #F3F3F3;
+}
+.welcome h4{
+color:black;
+font-weight: 200;
+
+}
+.welcome p{
+font-size: 14px;
+font-weight: 100;
+}
+.addnewtask{
+  display:flex;
+}
+.addbtn{
+  background-color:#E93B3B;
+  color: white !important;
+  font-weight: 100;
+  font-size: 14px;
+}
+
+#offcanvasRight{
+width:200px;
+}
+#offcanvasRightLabel{
+font-weight: 100;
+}
+.todotext{
+font-size: 12px;
+font-weight: 100;
+}
+#submittodo{
+  background-color:#E93B3B;
+  color: white !important;
+  font-weight: 100;
+  font-size: 12px;
+  border-color: #FF4D4D;
+  border-radius: 5px;
+}
+.tasks{
+  min-height:150px;
+  display: flex;
+}
+.taskitems{
+  min-height:100px;
+  background-color:white;
+
+}
+.taskitems p{
+font-weight: 100;
+font-size: 14px;
+
+}
+.tablehead{
+font-size:14px;
+font-weight:100;
+}
+.accordion-button{
+color:#6F6D72 ;
+font-weight: 100;
+font-size: 16px;
+}
+.accordion-button:hover{
+background-color: #f1f1f1;
+}
+.headbudget{
+display:flex;
+background-color:#F6F5F5;
+font-weight:100;
+font-size: 14px;
+}
+#budget:hover{
+  color:#E93B3B;
+}
+#budgetdet:hover{
+  color:#E93B3B;
+}
+.budge h5{
+  color:black;
+  font-weight:100;
+  font-size:18px;
+}
+.budge p{
+  font-weight:100;
+  font-size:14px;
+}
+.budge table{
+  font-weight:100;
+  font-size:14px;
+}
+.budge{
+background-color: white;
+}
+.budgetdetail{
+background-color:white;
+color:#6F6D72 ;
+
+}
+.tab{
+      background-color:white;
+      font-size: 14px;
+      font-weight: 100;
+  }
+.additem{
+  background-color:#00A490;
+  color: white;
+  font-size: 14px;
+  font-weight: 100;
+  }
+
+#display2{
+  display:none;
+  color: white;
+  font-size: 14px;
+  font-weight: 100;
+}
+#budget:hover{
+     background-color:white;
+     color:#E93B3B !important;
+
+}
+ #budgetdet{
+      color: #6F6D72 !important;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 700;
+
+}
+  #budget{
+      color: #6F6D72 !important;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 700;
+
+}
+#budgetdet:hover{
+      background-color:white;
+      color:#E93B3B !important;
+
+}
+.budgetdetdiv{
+border: 1px solid #6F6D72;
+text-align: center;
+
+}
+
+.budgetdiv{
+border: 1px solid #6F6D72;
+text-align: center;
+}
+.venue{
+color:#6F6D72 !important;
+font-size: 18px;
+font-weight: 500;
+
+}
+#accordionExample{
+color:#6F6D72;
+font-weight:100;
+font-size: 14px;
+}
+.accordion-button:focus{
+box-shadow: none;
+-webkit-box-shadow: none;
+background-color: #f1f1f1;
+color:#E93B3B;
+}
+.mylog{
+text-decoration: none;
+}
+.quotes{
+font-weight:200;
+font-size: 16px;
+border: 1px solid #6F6D72;
+background-color: white;
+
+}
+.search{
+display:flex;
+}
+.profile{
+display: flex;
+min-height:200px;
+font-size: 12px;
+font-weight: 100;
+}
+.theprofile{
+background-color: white;
+border: 1px solid #F6F5F5;
+
+}
+.profilehead{
+color: black;
+font-size: 16px;
+font-weight: 400;
+}
+
+.requestbtn{
+    background-color:#FF4D4D;
+    color: white;
+    border-radius: 10px;
+    border: 1px solid #FF4D4D;;
+
+}
+.profileheada{
+  text-decoration: none;
+  color: #6F6D72;
+  font-size: 16px;
+  font-weight: 300;
+}
+.p1:hover{
+  background-color: #FF4D4D;
+  color:white !important;
+}
+.profileheada:hover{
+  background-color: #FF4D4D;
+  color:white !important;
+}
+#form2{
+  display: none;
+}
+.all_a{
+  color:white !important;
+  text-decoration: none;
+}
+.all_a:hover{
+  color:white !important;
+
+}
+.ax{
+  border: 1px solid #FF4D4D;;
+
+}
+#offcanvasRight1{
+  width: 80%;
+}
+.allguest{
+  background-color: #E1CAF1;
+}
+.allaccept{
+  background-color: #CFEDAC;
+}
+.allwait{
+  background-color: #FFF3BF;
+}
+.alldec{
+  background-color: #FED5BA;
+}
+.required:after{
+  content:" *";
+  color: red;
+}
+.theforms{
+display: flex;
+min-height:40px;
+background-color: white;
+
+
+}
+.theforma{
+text-align: center;
+text-decoration: none;
+color: black ;
+font-family: 'Rubik', sans-serif;
+font-size: 16px;
+font-weight: 100;
+
+
+}
+.theforma:hover{
+color:red;
+
+}
+.table4{
+display: none;
+}
+.table2{
+display: none;
+}
+.table3{
+display: none;
+}
+.options{
+border-right: 1px solid #FF4D4D;;
+
+}
+.choosefile{
+  border-radius: 5px;
+  background-color: #00A490;
+}
+.realwed{
+background-color: white;
+min-height: 800px;
+}

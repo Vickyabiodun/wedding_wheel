@@ -1,0 +1,388 @@
+{%extends 'dashboard_layout.html'%}
+{%set t= get_flashed_messages()%}
+{%block content%}
+<div class="welcome mt-lg-5 ms-lg-5 ms-2 mt-4">
+  
+
+<h4>My Guest Manager</h4>
+<p>Guest manager allows you to take your guest management for wedding events.</p>
+<p style="color:red">To asses guest list, use on Desktop</p>
+<hr>
+
+
+{%if t%}
+{%for message in t%}
+<div class="alert alert-danger">{{message}}</div>
+{%endfor%}
+{%endif%}
+
+  
+<div class="row tasks justify-content-around mt-lg-5 b-lg-4">
+    {%if all_guest%}
+  <div class="col-lg-2 col-md-2 col-10 mb-3  taskitems allguest">
+      <h1 class="mynumber mt-lg-2">{{all_guest|count}}</h1>
+      <p>All Guest</p>
+
+  </div>
+  {%else%}
+  <div class="col-lg-2 col-md-2 col-10 mb-3  taskitems allguest">
+    <h1 class="mynumber mt-lg-2">0</h1>
+    <p>All Guest</p>
+
+</div>
+  {%endif%}
+  {%if all_accept%}
+  <div class="col-lg-2 col-md-2 col-10 mb-3 taskitems allaccept">
+      <h1 class="mynumber mt-lg-2">{{all_accept|count}}</h1>
+      <p>Accepted</p>
+
+  </div>
+  {%else%}
+  <div class="col-lg-2 col-md-2  col-10 mb-3  taskitems allaccept">
+    <h1 class="mynumber mt-lg-2">0</h1>
+    <p>Accepted</p>
+
+</div>
+  {%endif%}
+  {%if all_wait%}
+  <div class="col-lg-2  col-md-2 col-10 mb-3 taskitems allwait">
+      <h1 class="mynumber mt-lg-2">{{all_wait|count}}</h1>
+      <p>Waiting</p>
+
+  </div>
+  {%else%}
+  <div class="col-lg-2 col-md-2 col-10 mb-3  taskitems allwait">
+    <h1 class="mynumber mt-lg-2">0</h1>
+    <p>Waiting</p>
+
+</div>
+{%endif%}
+
+  {%if all_decline%}
+  <div class="col-lg-2 col-md-2 col-10 mb-3  taskitems alldec">
+
+      <h1 class="mynumber mt-lg-2">{{all_decline|count}}</h1>
+      <p>Declined</p>
+  </div>
+{%else%}
+<div class="col-lg-2 col-md-2 col-10 mb-3  taskitems alldec">
+
+    <h1 class="mynumber mt-lg-2">0</h1>
+    <p>Declined</p>
+</div>
+{%endif%}
+</div>
+
+<!--The side canva section-->
+<div class="row addnewtask justify-content-end">
+    <div class="col-lg-2 col-5 col-md-3">              
+
+          <button class="btn addbtn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight1" aria-controls="offcanvasRight1">Add New Guest</button>
+
+            <div class="offcanvas  offcanvas-end" tabindex="-1" id="offcanvasRight1" aria-labelledby="offcanvasRightLabel">
+                    <div class="offcanvas-header">
+
+                        <p class="offcanvas-title" id="offcanvasRightLabel">Guest Information</p>
+                        <button type="button" class="btn-close " data-bs-dismiss="offcanvas" aria-label="Close" class="col-lg-12 col-12 mb-3 mb-lg-2"></button>
+
+                    </div>
+                    <div class="offcanvas-body">
+                        <form action="{{url_for('couple_guestlist')}}" method="post" class="todotext">
+                            {{guest_list.first_name.label (class_='col-lg-5 mb-lg-3 col-5 mb-3 required')}}
+                            {{guest_list.last_name.label (class_='col-lg-5 ms-lg-5  mb-lg-3 col-5 mb-3  required')}}
+                            {{guest_list.first_name (class_='col-lg-5 mb-lg-3 p-lg-2  col-5 mb-3 ', placeholder='First Name')}}
+                            <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
+
+                            {{guest_list.last_name(class_='col-lg-5 ms-lg-5 mb-lg-3 p-lg-2 col-5 ms-2 mb-3 ', placeholder='Last Name')}}
+                            <hr>
+                            <p style="font-size: 16px;">Relation with couple</p>
+                            <p class="required">Group/Family</p>
+                            <select class="col-lg-5 p-lg-2 " name="therelation">
+                                <option value="Groom's Family">Groom's Family</option>
+                                <option value="Bride's Family">Bride's Family</option>
+                                <option value="Groom's Friend">Groom's Friend</option>
+                                <option value="Bride's Friend">Bride's Friend</option>
+                                <option value="Couple's Friend">Couple's Friend</option>
+                                <option value="Groom's Acquaintance">Groom's Acquaintance</option>
+                                <option value="Bride's Acquaintance">Bride's Acquaintance</option>
+                                <option value="Couple's Acquaintance">Couple's Acquaintance</option>
+
+                            </select>
+                            <hr>
+                            <p style="font-size: 16px;">Contact Information</p>
+                            {{guest_list.address_one.label (class_='col-lg-5 mb-lg-3 col-5 mb-3')}}
+                            {{guest_list.address_two.label (class_='col-lg-5 ms-lg-5  mb-lg-3 col-5 mb-3')}}
+                            {{guest_list.address_one (class_='col-lg-5 mb-lg-3 p-lg-2 col-5 mb-3', placeholder='Adress Line 1')}}
+
+                            {{guest_list.address_two(class_='col-lg-5 ms-lg-5 mb-lg-3 p-lg-2 col-6 mb-3 ms-2', placeholder='Adress Line 2')}}
+
+                            {{guest_list.email.label (class_='col-lg-5 mb-lg-3 col-5 mb-3 required')}}
+                            {{guest_list.city.label (class_='col-lg-5 ms-lg-5  col-5 mb-3 mb-lg-3 ')}}
+                            {{guest_list.email (class_='col-lg-5 mb-lg-3 p-lg-2 col-5 mb-3', placeholder='Email Address')}}
+
+                            {{guest_list.city(class_='col-lg-5 ms-lg-5 mb-lg-3 p-lg-2 col-6 mb-3 ms-2', placeholder='City')}}
+
+                            {{guest_list.country.label (class_='col-lg-5 mb-lg-3 col-5 mb-3')}}
+                            {{guest_list.post_code.label (class_='col-lg-5 ms-lg-5  mb-lg-3 col-6 mb-3')}}
+                            {{guest_list.country (class_='col-lg-5 mb-lg-3 p-lg-2 col-5 mb-3', placeholder='Country')}}
+
+                            {{guest_list.post_code(class_='col-lg-5 ms-lg-5 mb-lg-3 p-lg-2 col-6 mb-3 ms-2', placeholder='Postcode')}}
+                            {{guest_list.submit (class_='col-lg-3 btn addbtn')}}
+
+                        </form>
+
+                    </div>
+            </div>
+    </div>
+
+</div>
+<!--The list heading-->
+<div class="row theforms justify-content-center mt-lg-3">
+    <div class="col-lg-2 col-3 options">
+    
+        <a href="#" class="theforma"><p id="option1">All Guests</p></a>
+
+    </div>
+    <div class="col-lg-2 col-3 options">
+    
+        <a href="#" class="theforma"><p id="option2">Completed</p></a>
+
+
+    </div>
+    <div class="col-lg-2 col-3 options">
+    
+        <a href="#" class="theforma"><p id="option3">Waiting</p></a>
+
+    </div>
+    <div class="col-lg-2 col-3 options">
+    
+        <a href="#" class="theforma "><p id="option4">Declined</p></a>
+
+
+    </div>
+
+</div>
+<!--All Guest Table -->
+<div id="guests">
+<table class="table table-danger" id="d1" >
+    <tr class="tablehead">
+      <th colspan="2">Guest Name</th>
+      <th colspan="2">Relationship</th>
+      <th colspan="2">Email Adress</th>
+      <th colspan="2">Invite Status</th>
+      <th colspan="2">RSVP</th>
+      <th colspan="2">Action</th>
+    </tr>
+    {%if all_guest%}
+        {%for g in all_guest%}
+    <tr>
+      <td colspan="2">{{g.first_name}} {{g.last_name}}</td>
+
+      <td colspan="2">{{g.relationship}}</td>
+      <td colspan="2"><a href="mailto:{{g.email}}" >{{g.email}}</a></td>
+      <td colspan="2">{{g.invite_status}}</td>
+      <td colspan="2">{{g.rsvp_status}}</td>
+      <td colspan="2"><button class=" btn addbtn ax"><a href="/invite_sent/{{g.invite_id}}" class="all_a">Invite Sent</a></button>&nbsp; | &nbsp;<button class="btn addbtn ax"><a href="/comfirmed_guest/{{g.invite_id}}" class="all_a">Confirmed</a></button>&nbsp; | &nbsp;<button class="btn addbtn ax"><a href="/declined_duest/{{g.invite_id}}" class="all_a">Declined</a></button></td>
+
+        
+
+        
+     </tr>
+     {%endfor%}
+     {%else%}
+     <tr>
+        <td colspan="2">No Guest Added Yet</td>
+  
+        
+          
+  
+          
+       </tr>
+     {%endif%}
+
+</table>
+<!--All Completed Table -->
+<table class="table table-danger table2" id="d2" >
+    <tr class="tablehead">
+      <th colspan="2">Guest Name</th>
+      <th colspan="2">Relationship</th>
+      <th colspan="2">Email Adress</th>
+      <th colspan="2">Invite Status</th>
+      <th colspan="2">RSVP</th>
+    </tr>
+    {%if all_accept%}
+    {%for accept in all_accept%}
+    <tr>
+      <td colspan="2">{{accept.first_name}} {{accept.first_name}}</td>
+
+      <td colspan="2">{{accept.relationship}}</td>
+      <td colspan="2">{{accept.email}}</td>
+      <td colspan="2">{{accept.invite_status}}</td>
+      <td colspan="2">{{accept.rsvp_status}}</td>
+      
+        
+
+        
+     </tr>
+     {%endfor%}
+     {%else%}
+     <tr>
+        <td colspan="12">No Confirmed Guest</td>
+  
+        
+        
+          
+  
+          
+       </tr>
+    {%endif%}
+</table>
+        
+<!--All Waiting Table -->
+<table class="table table-danger table3" id="d3" >
+    <tr class="tablehead">
+      <th colspan="2">Guest Name</th>
+      <th colspan="2">Relationship</th>
+      <th colspan="2">Email Adress</th>
+      <th colspan="2">Invite Status</th>
+      <th colspan="2">RSVP</th>
+    </tr>
+    {%if all_wait%}
+    {%for wait in all_wait%}
+
+    <tr>
+      <td colspan="2">{{wait.first_name}}{{wait.first_name}}</td>
+
+      <td colspan="2">{{wait.relationship}}</td>
+      <td colspan="2">{{wait.email}}</td>
+      <td colspan="2">{{wait.invite_status}}</td>
+      <td colspan="2">{{wait.rsvp_status}}</td>
+      
+        
+
+        
+     </tr>
+     {%endfor%}
+     {%else%}
+     <tr>
+        <td colspan="12">No Guest on the wait list</td>
+  
+        
+        
+          
+  
+          
+       </tr>
+    {%endif%}
+     
+
+</table>
+<!--All Declined Table -->
+<table class="table table-danger table4" id="d4" >
+    <tr class="tablehead">
+      <th colspan="2">Guest Name</th>
+      <th colspan="2">Relationship</th>
+      <th colspan="2">Email Adress</th>
+      <th colspan="2">Invite Status</th>
+      <th colspan="2">RSVP</th>
+    </tr>
+    {%if all_decline%}
+    {%for decline in all_decline%}
+
+    <tr>
+      <td colspan="2">{{decline.first_name}} {{decline.first_name}}</td>
+
+      <td colspan="2">{{decline.relationship}}</td>
+      <td colspan="2">{{decline.email}}</td>
+      <td colspan="2">{{decline.invite_status}}</td>
+      <td colspan="2">{{decline.rsvp_status}}</td>
+      
+        
+
+        
+     </tr>
+     {%endfor%}
+     {%else%}
+     <tr>
+        <td colspan="12">No Guest has declined</td>
+  
+        
+        
+          
+  
+          
+       </tr>
+    {%endif%}
+     
+
+</table>
+</div>
+{%endblock%}
+
+{%block js%}
+<script type='text/javascript'>
+    $(document).ready(function(){
+          
+          $('#option1').click(function(){
+
+              $('#d1').show(2,function(){
+              $('#d2').hide()
+              $('#d3').hide()
+              $('#d4').hide()
+
+              })
+
+              
+
+
+          });
+          $('#option2').click(function(){
+
+              $('#d2').show(2,function(){
+                $('#d1').hide()
+                $('#d3').hide()
+                $('#d4').hide()
+
+
+              })
+
+              
+
+
+          });
+
+          $('#option3').click(function(){
+
+                $('#d3').show(2,function(){
+                $('#d1').hide()
+                $('#d2').hide()
+                $('#d4').hide()
+
+
+                })
+
+
+
+
+                });  
+
+                $('#option4').click(function(){
+
+                $('#d4').show(2,function(){
+                $('#d1').hide()
+                $('#d2').hide()
+                $('#d3').hide()
+
+
+                })
+
+
+
+
+                });  
+
+      });
+      
+  </script>
+
+{%endblock%}

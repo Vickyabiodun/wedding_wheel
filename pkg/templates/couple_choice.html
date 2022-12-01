@@ -1,0 +1,50 @@
+{%extends 'layout.html'%}
+{%block content%}
+
+
+{%if data%}
+
+{%for items in data%}
+
+<div class="row justify-content-center mb-lg-5 listedpage mt-4 mb-4">
+    <div class="col-lg-2 listedpage1">
+
+    <a href="/listing_homepage/{{items.listing_id}}">
+
+            <img src="/static/uploads/{{items.gallery_of_venue}}" class="img-fluid">
+        </a>
+        </div>
+        <div class="col-lg-10 listedpage1">
+
+    <a href="/listing_homepage/{{items.listing_id}}">
+
+            <h5> {{items.title}}</h5>
+            <p>{{items.address}},<span>{{items.vendorstate.state_name}}</span></p>
+
+        </a>
+        </div>
+    
+ 
+</div>
+{%endfor%}
+{%else%}
+<div class="row justify-content-center mb-lg-3 listed">
+   
+        <div class="col-lg-10 emptylistedpage">
+
+
+            <h5 style="color:red;"> Oops! No Vendor found in the category you have specified</h5>
+            <a href=" {{url_for('find_vendors')}}" style="color:black"> Click to find other vendors.</a>
+
+       
+        </div>
+    
+ 
+</div>
+
+{%endif%}
+
+
+    
+   
+{%endblock%}

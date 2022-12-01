@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='/static/bootstrap/css/bootstrap.css' rel='stylesheet'>
+    <link href='/static/fontawesome/css/all.css' rel='stylesheet'>
+    <style type="text/css">
+        div{
+            font-family: 'Rubik', sans-serif;
+        }
+        body{
+          color: #6F6D72 ;
+
+        }
+        .nav{
+            height: 50px;
+            display:flex;
+        }
+        .logo{
+            color:red;
+            font-size: 22px;
+            
+          }
+        .name{
+          margin-left:58%;
+          font-size: 14px;
+          font-weight: 100;
+          position: relative;
+          display: inline-block;
+
+        }
+        .name1{
+          font-size: 12px;
+          font-weight: 100;
+          position: relative;
+          display: inline-block;
+        }
+        .pic{
+          border: 1px solid grey;
+          border-radius: 20%;
+
+        }
+        .bell{
+          color:#FF4D4D;
+          display:inline-block;
+          
+
+       }
+       .listed{
+            color:#6F6D72 !important;
+            font-weight: 100;
+            text-decoration: none !important;
+            font-size: 12px;
+            border: 1px solid white;
+            display: flex;
+        }
+        button a{
+          color:white !important;
+          text-decoration: none;
+        }  
+        button a:hover{
+          color:white !important;
+        }             
+        .dropdown-display {
+          display: none;
+          position: absolute;
+          background-color: #f1f1f1;
+          min-width: 200px;
+          border-radius: 5%;
+          box-shadow: 0px 8px 16px 0px rgba(255, 133, 132,0.5);
+          z-index: 1;
+          background-color: white;
+          transition: display .6s ease;
+          overflow: hidden ;
+        }
+        .dropdown-display a {
+          color: black;
+          padding: 12px 16px;
+          text-decoration: none;
+          display: block;
+
+        }
+        .dropdown-display a:hover {
+          background-color: #FEEFEE;
+          color: #FF4D4D ! important;
+        }
+
+        .name1:hover .dropdown-display {
+          display: block;
+        }
+        .name:hover .dropdown-display {
+          display: block;
+        }
+
+        
+        .maindiv1{
+          height: 100%;
+          background: white;
+          
+        }
+        ul{
+          list-style-type: none;
+        }
+        .maindiv1 a{
+          text-decoration: none;
+          color: #6F6D72 !important;
+          font-size: 14px;
+          font-weight: 100;
+        }
+       a:hover{
+          color:#FF4D4D !important;
+        }
+        ul li i{
+          margin-right: 5%;
+        }
+        .line1{
+        display:flex;
+        height:270px
+      }
+      .line1div{
+          height:220px;
+          border: 1px solid #6F6D72 ;
+          background-color: white;
+          font-size: 14px;
+          font-weight: 100;
+          border-radius: 10px;
+      }
+      .mynumber{
+          font-weight:800;
+          color:black;
+      }
+      .thelink{
+          text-align: center;
+      }
+      .view{
+          text-decoration: none;
+          color: #6F6D72 !important;
+
+      }
+      .view:hover{
+          color:#FF4D4D;
+      }
+      .baby{
+        color: #6F6D72 ;
+        text-decoration: none;
+      }
+      .main{
+        display:flex;
+        height: 300px;
+      }
+      .pbaby{
+        text-align: end;
+      }
+      .themain{
+        height:1000px;
+      }
+      .maindiv2{
+        background-color: #F3F3F3;
+      }
+      .welcome h4{
+        color:black;
+        font-weight: 200;
+
+      }
+      .welcome p{
+        font-size: 14px;
+        font-weight: 100;
+      }
+      .addnewtask{
+          display:flex;
+      }
+      .addbtn{
+          background-color:#E93B3B;
+          color: white !important;
+          font-weight: 100;
+          font-size: 14px;
+      }
+      
+      #offcanvasRight{
+        width:200px;
+      }
+      #offcanvasRightLabel{
+        font-weight: 100;
+      }
+      .todotext{
+        font-size: 12px;
+        font-weight: 100;
+      }
+      #submittodo{
+          background-color:#E93B3B;
+          color: white !important;
+          font-weight: 100;
+          font-size: 12px;
+          border-color: #FF4D4D;
+          border-radius: 5px;
+        }
+        .tasks{
+          height:150px;
+          display: flex;
+      }
+      .taskitems{
+          height:100px;
+          background-color:white;
+
+      }
+      .taskitems p{
+        font-weight: 100;
+        font-size: 14px;
+
+      }
+      .tablehead{
+        font-size:14px;
+        font-weight:100;
+    }
+    .accordion-button{
+      color:#6F6D72 ;
+      font-weight: 100;
+      font-size: 16px;
+    }
+    .accordion-button:hover{
+      background-color: #f1f1f1;
+    }
+    .headbudget{
+      display:flex;
+      background-color:#F6F5F5;
+      font-weight:100;
+      font-size: 14px;
+        }
+        #budget:hover{
+          color:#E93B3B;
+      }
+      #budgetdet:hover{
+          color:#E93B3B;
+      }
+      .budge h5{
+          color:black;
+          font-weight:100;
+          font-size:18px;
+      }
+      .budge p{
+          font-weight:100;
+          font-size:14px;
+      }
+      .budge table{
+          font-weight:100;
+          font-size:14px;
+      }
+      .budge{
+        background-color: white;
+      }
+      .budgetdetail{
+        background-color:white;
+
+      }
+      .tab{
+              background-color:white;
+              font-size: 14px;
+              font-weight: 100;
+          }
+      .additem{
+          background-color:#00A490;
+          color: white;
+          font-size: 14px;
+          font-weight: 100;
+          }
+
+      #display2{
+          display:none;
+          color: white;
+          font-size: 14px;
+          font-weight: 100;
+      }
+        #budget:hover{
+             background-color:white;
+             color:#E93B3B !important;
+
+      }
+         #budgetdet{
+              color: #6F6D72 !important;
+              text-decoration: none;
+              font-size: 16px;
+              font-weight: 700;
+
+      }
+          #budget{
+              color: #6F6D72 !important;
+              text-decoration: none;
+              font-size: 16px;
+              font-weight: 700;
+
+      }
+        #budgetdet:hover{
+              background-color:white;
+              color:#E93B3B !important;
+
+      }
+      .budgetdetdiv{
+        border: 1px solid #6F6D72;
+        text-align: center;
+
+      }
+
+      .budgetdiv{
+        border: 1px solid #6F6D72;
+        text-align: center;
+      }
+      .venue{
+        color:#6F6D72 !important;
+        font-size: 18px;
+        font-weight: 500;
+
+      }
+      #accordionExample{
+        color:#6F6D72;
+        font-weight:100;
+        font-size: 14px;
+      }
+      .accordion-button:focus{
+        box-shadow: none;
+        -webkit-box-shadow: none;
+        background-color: #f1f1f1;
+        color:#E93B3B;
+      }
+      .mylog{
+        text-decoration: none;
+      }
+      .quotes{
+        font-weight:200;
+        font-size: 16px;
+        border: 1px solid #6F6D72;
+        background-color: white;
+
+      }
+      .search{
+        display:flex;
+      }
+      .profile{
+        display: flex;
+        height: 800px;
+        font-size: 12px;
+        font-weight: 100;
+      }
+      .theprofile{
+        background-color: white;
+        border: 1px solid #F6F5F5;
+
+      }
+      .profilehead{
+        color: black;
+        font-size: 16px;
+        font-weight: 400;
+      }
+
+      .requestbtn{
+            background-color:#FF4D4D;
+            color: white;
+            border-radius: 10px;
+            border: 1px solid #FF4D4D;;
+
+        }
+        .profileheada{
+          text-decoration: none;
+          color: #6F6D72;
+          font-size: 16px;
+          font-weight: 300;
+        }
+        .p1:hover{
+          background-color: #FF4D4D;
+          color:white !important;
+        }
+        .profileheada:hover{
+          background-color: #FF4D4D;
+          color:white !important;
+        }
+        #form2{
+          display: none;
+        }
+        .all_admin_a{
+            text-decoration: none;
+            color: #6F6D72 !important;
+
+        }
+    </style>
+   </head>
+<body>
+<div>
+  
+  
+<div class="nav row  justify-content-start">
+  <div class="col-lg-2">
+    <a href="{{url_for('hompage')}}" class="mylog">
+    <img src="/static/image/logo.png" alt="logo" height="30">
+    <span class="logo">WedWheel</span>
+    </a>
+  </div>
+  <div class="col-lg-1 name">    
+    
+  
+  
+  </div>
+  <div class="col-lg-2 name1">
+    <p class="pbaby pt-lg-1">
+
+      <span class="baby"><a href="#" class="baby">Admin</a></span>
+    </p>
+    <div class="dropdown-display">
+      <a href="{{url_for('admin')}}">Dashboard</a>
+      <a href="{{url_for('thecouples')}}">All Couple</a>
+      <a href="{{url_for('listings')}}">All Listing</a>
+      <a href="{{url_for('thevendors')}}">All Vendors</a>
+
+      <a href="{{url_for('admin_logout')}}">Logout</a>
+
+    </div>
+    
+   
+  
+  
+  </div>
+  <hr>
+
+</div>
+
+<!--The Sidebar and--><!--The centre design-->
+<div class="row themain">
+
+  <div class="col-lg-2 maindiv1">
+    
+      <ul class="nav-links">
+        <li class="mt-lg-3">
+          <p>
+            Admin
+          </p>
+          <p class="baby ms-lg-3"></p>
+          <p class="ms-lg-4">
+            <a href="" class="">       
+               Edit Profile
+            </a>      
+          </p>
+        </li>
+        <li class="mt-lg-5">
+          <a href="{{url_for('admin')}}">
+            <i class="fa-solid fa-compass"></i>
+            <span class="">Dashboard</span>
+          </a>
+        </li>
+        <hr>
+        <li>
+          <a href="{{url_for('thevendors')}}">
+            <i class="fa-solid fa-maximize"></i>
+            <span class="">All Vendors</span>
+          </a>
+        </li>
+        <hr>
+        <li>
+          <a href="{{url_for('thecouples')}}">
+            <i class="fa-solid fa-heart"></i>
+            <span class="">All Couples</span>
+          </a>
+        </li>
+        <hr>
+        <li>
+            <a href="{{url_for('listings')}}">
+              <i class="fa-solid fa-list"></i>
+              <span class="">All Listing</span>
+            </a>
+          </li>
+          <hr>
+      
+        
+    
+    
+    
+        <li class="log_out">
+          <a href="{{url_for('admin_logout')}}">
+            
+            <i class="fa-solid fa-right-from-bracket"></i>
+            <span class="">Log out</span>
+          </a>
+        </li>
+        <hr>
+    
+      </ul>
+      
+    
+
+
+
+  </div>
+  
+  <div class="col-lg-10 maindiv2">
+
+  {%block content%}
+
+  {%endblock%}
+  </div>
+
+
+</div>
+
+
+
+</div>
+  <script type='text/javascript' src='/static/js/jquery-3.6.1.min.js'></script>
+  <script type='text/javascript' src='/static/bootstrap/js/bootstrap.js'></script>
+
+  
+    {% block js %}
+ 
+    {%endblock%}
+
+</body>
+</html>
+

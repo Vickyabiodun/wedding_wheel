@@ -1,0 +1,85 @@
+{%extends 'layout.html'%}
+{%block content%}
+
+{%if data%}
+{%for items in data%}
+<div class="row justify-content-center listtittle">
+
+
+<div class="col-7">
+    <h4> {{items.title}}</h4>
+    <p>{{items.address}},<span>{{items.vendorstate.state_name}}</span></p>
+
+
+</div>
+
+<div class="col-lg-2">
+    <button class="btn wish mt-lg-3">
+        <p >
+            <i class="fa-regular fa-heart"></i>
+
+            ADD TO WISHLIST
+        </p>
+    </button>
+
+</div>
+
+</div>
+<div class="row justify-content-center layercapacity mb-lg-5">
+    <div class="col-lg-3 layercapacity1">
+        <p> N {{items.price}}<br>Start From </p>
+
+
+    </div> 
+    <div class="col-lg-3 layercapacity1">
+        <p>{{items.capacity}}+ <br>Guests</p>
+        
+
+
+    </div> 
+    <div class="col-lg-3 layercapacity1">
+        <p>Reviews will be here </p>
+
+
+    </div> 
+
+</div>    
+<div class="row themainlist justify-content-center">
+    <div class="col-lg-5 mt-lg-5 listcontent">
+        <h5 class="mt-lg-3">Product Description</h5>
+        <hr>
+        
+        <div>
+            <img src="/static/uploads/{{items.gallery_of_venue}}" width="100%" height="300"/>
+        </div>
+        <p>{{items.description}}</p>
+    </div>   
+    <div class="col-lg-2 ms-lg-5 mt-lg-5 listcontent">
+        <form method="post" action="" class="p-3">
+            <h5>Request Quote</h5>
+            <hr>
+            {{myfrm.name ( class_="mb-lg-3", placeholder="Name")}} 
+            {{myfrm.email (  class_="mb-lg-3",placeholder="Email")}} 
+            {{myfrm.phone ( class_="mb-lg-3", placeholder="Phone")}}
+            {{myfrm.wedding_date }} 
+            {{myfrm.message (  class_=" mt-lg-3 mb-lg-3",placeholder="Brief Explanation")}} 
+            {{myfrm.submit ( class_=" col-lg-12 mb-lg-3  p-2 requestbtn",value='Request Quote')}}                     
+
+
+
+
+        </form>
+    
+    </div>  
+
+</div>   
+    
+
+  
+{%endfor%}
+
+{%endif%}
+
+    
+   
+{%endblock%}

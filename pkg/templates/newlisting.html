@@ -1,0 +1,157 @@
+{%extends 'dashboard_vendor.html'%}
+{set new=get_flashed_messages()}
+
+{%block content%}
+<div class="welcome mt-lg-5 ms-lg-5 mt-4 ms-4">
+<h4>Add New Listing</h4>
+<p>Lists present multiple line items vertically as a single continuous element.</p>
+
+
+</div>
+{%if new%}
+{%for l in new%}
+<p>{{l}}</p>
+{%endfor%}
+{%endif%}
+<div class="row mainlist justify-content-center">
+    <div class="col-12">
+        <div id="notapproved_feedback" class="ms-lg-5 ms-3" ></div>
+        <form action="{{url_for('newlisted')}}" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
+
+            <div class="col-lg-11 ms-lg-5 mt-lg-3 col-12 ps-4 head">
+                <p>About Listing</p>
+            </div>
+            <div  class="col-lg-11 ms-lg-5 formcontent">
+                <p class="ms-lg-4 ms-2">Title</p>
+                {{frm.title (class_="col-lg-11 ms-lg-4 p-2 col-11 ms-2 mb-3", placeholder="Title")}} 
+                <div class="secondlist justify-content-around">
+                    <div class="col-lg-5 col-5">
+                        <p class="mt-lg-2 mt-2">Category</p>
+                        <select class="col-lg-12 col-12 p-2" name="cat">
+                            <option value="">Please Select Category</option>
+
+                            {%if category%}
+                                {%for i in category%}
+
+                                <option value="{{i.cat_id}}">{{i.cat_name}}</option>
+                                {%endfor%}
+
+                            {%endif%}  
+                        </select>                          
+                    </div>
+                    <div class="col-lg-6 col-5">
+                        <p class="mt-lg-2 mt-1">Capacity</p>
+                        {{frm.capacity (class_="col-lg-11 p-2 col-12", placeholder="Please enter the number you cater to")}} 
+                    </div>
+                    
+                </div>
+                <div>
+                    <p class="ms-lg-4 mt-lg-2 ms-2 mt-4">Price (Start From)</p>
+                    {{frm.price (class_="col-lg-11 ms-lg-4 p-2 col-11 ms-2", placeholder="Price")}} 
+                </div>
+                <div>
+                    <p class="ms-lg-4 mt-lg-2 ms-2 mt-4">Address</p>
+                    {{frm.address (class_="col-lg-11 ms-lg-4 p-2 col-11 ms-2", placeholder="Street Address")}} 
+
+                 
+                </div>
+                <div class="secondlist justify-content-around">
+                    <div class="col-lg-5 col-5">
+                        <p class="mt-lg-2 mt-2">Vendor State</p>
+                        <select class="col-lg-12 col-12 p-2" name="loc">
+                            <option value="">Please Select Location</option>
+
+                            {%if state%}
+                                {%for s in state%}
+
+                                <option value="{{s.state_id}}">{{s.state_name}}</option>
+                                {%endfor%}
+
+                            {%endif%}  
+                        </select>
+                    </div>
+                    <div class="col-lg-6 col-6">
+                        <p class="mt-lg-2 mt-1">Postcode</p>
+                        {{frm.postcode (class_="col-lg-11 p-2 col-12", placeholder="Enter Postcode")}} 
+
+                    </div>
+                    
+                </div>
+                
+                <div>
+                    <p class="mt-lg-2 ms-lg-4 ms-2 mt-2">Description</p>
+                    {{frm.description (class_="col-lg-11 ms-lg-4 p-2 col-12 ", placeholder="Please Enter Description")}}                     
+                </div>
+                <hr>
+               <div> 
+                <h5 class=" ms-lg-4 ms-2">Add Gallery Of Venue</h5>
+                <p class="mt-lg-2 ms-lg-4 ms-2 mt-4">Browse Image</p>
+                {{frm.gallery_of_venue (class_="file choosefile col-lg-11 p-2 ms-lg-3 col-11 ms-2" )}}                     
+
+               </div>
+               <hr>
+               <div> 
+                <h5 class=" ms-lg-4 ms-2">Add Video</h5>
+                <p class="mt-lg-2 ms-lg-4 ms-2 mt-2">Video</p>
+                {{frm.video (class_="col-lg-11 ms-lg-4 p-2 col-11 ms-2", placeholder="https://youtu.be/MTSWwQu0rA0" )}}                     
+
+               </div>
+               <hr>
+               <div><h5 class=" ms-lg-4 ms-2">Add Socials</h5></div>
+               <div class="secondlist justify-content-around">
+
+                <div class="col-lg-5 col-5">
+                    <p class="mt-lg-2 mt-2">Facebook</p>
+                    {{frm.facebook (class_="col-lg-11 p-2 col-11", placeholder="www.facebook.com")}}                     
+
+                </div>
+                <div class="col-lg-6 col-6">
+                    <p class="mt-lg-2 mt-2">Twitter</p>
+                    {{frm.twitter (class_="col-lg-11 p-2 col-11", placeholder="www.twitter.com")}}                     
+                </div>
+                
+            </div>
+            <div class="secondlist justify-content-around">
+
+                <div class="col-lg-5 col-5">
+                    <p class="mt-lg-2 mt-2">Instagram</p>
+                    {{frm.instagram (class_="col-lg-11 p-2 col-11" ,placeholder="www.instagram.com")}}                     
+                </div>
+                <div class="col-lg-6 col-6">
+                    <p class="mt-lg-2 mt-2">YouTube</p>
+                    {{frm.youtube (class_="col-lg-11 p-2 col-11", placeholder="www.youtube.com")}}                     
+                </div>
+                
+            </div>
+            <div class="col-lg-6 col-6">
+
+                {{frm.submit (class_="col-lg-4 ms-lg-4 mt-lg-3 listbtn p-2 col-6 ms-2 mt-3", id='listitembtn')}}                     
+            </div>
+            </div>
+        </form>
+    </div>
+
+
+
+</div>
+
+{%endblock%}
+{% block js %}
+ <script type="text/javascript">
+$(document).ready(function(){
+
+    if("{{getvendor.status}}"=='Not Approved'){
+        $('#listitembtn').attr('disabled','disabled')
+        $('#notapproved_feedback').html('Please update your profile at the profile section to be able to list item.')
+    }
+    if("{{getvendor.status}}"=='Not Approved'){
+        $('#notapproved_feedback').html('Please update your profile at the profile section to be able to list item.')
+    }
+    if("{{getvendor.status}}"=='Suspended'){
+        $('#listitembtn').attr('disabled','disabled')
+        $('#notapproved_feedback').html('Your account has been suspended, as such, you can no longer list item on this platform. If you feel there is something wrong, reach out to the helpline')
+    }
+})
+</script>
+{%endblock%}

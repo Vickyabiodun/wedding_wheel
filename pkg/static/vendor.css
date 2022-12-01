@@ -1,0 +1,466 @@
+@media all and (max-width: 990px) {
+
+   #vendhome{
+   display:none;
+       }
+       
+
+}
+
+
+div{
+ font-family: 'Rubik', sans-serif;
+}
+body{
+color: #6F6D72 ;
+
+}
+.choosefile{
+border-radius: 5px;
+background-color: #00A28E;
+}
+.listbtn{
+background-color:#E93B3B;
+color:white;
+border-color:#E93B3B;
+border-radius: 10px;
+border: 1px solid #E93B3B;
+}
+
+.nav{
+ min-height: 50px;
+ display:flex;
+}
+.logo{
+ color:red;
+ font-size: 22px;
+ 
+}
+.name{
+font-size: 14px;
+font-weight: 100;
+position: relative;
+display: inline-block;
+
+}
+.head{
+background-color:#F3F3F3;
+font-weight: 100;
+border: 1px solid #E1E3E4;
+}
+.name1{
+font-size: 14px;
+font-weight: 100;
+position: relative;
+display: inline-block;
+text-align: end;
+}
+.pic{
+border: 1px solid grey;
+border-radius: 50%;
+padding: 2%;
+
+}
+
+
+.dropdown-display {
+display: none;
+position: absolute;
+background-color: #f1f1f1;
+min-width:150px;
+border-radius: 5%;
+box-shadow: 0px 8px 16px 0px rgba(255, 133, 132,0.5);
+z-index: 1;
+background-color: white;
+transition: display .6s ease;
+overflow: hidden ;
+
+}
+.dropdown-display a {
+color: black;
+padding: 12px 16px;
+text-decoration: none;
+display: block;
+
+}
+.dropdown-display a:hover {
+background-color: #FEEFEE;
+color: #FF4D4D ! important;
+}
+
+.name1:hover .dropdown-display {
+display: block;
+}
+.name:hover .dropdown-display {
+display: block;
+}
+
+
+.maindiv1{
+height: 100%;
+background: white;
+
+
+}
+ul{
+list-style-type: none;
+}
+.maindiv1 a{
+text-decoration: none;
+color: #6F6D72 !important;
+font-size: 14px;
+font-weight: 100;
+}
+a:hover{
+color:#FF4D4D !important;
+}
+ul li i{
+margin-right: 5%;
+}
+.line1{
+display:flex;
+height:270px
+}
+.redbtn{
+display:flex;
+
+
+}
+.mainlist{
+display:flex;
+min-height: 400px;
+font-weight: 100;
+font-size: 14px;
+}
+.file{
+ background-color:#00A28E;
+             
+}
+.secondlist{
+display: flex;
+}
+.formcontent{
+background-color:white;
+border: 1px solid #E1E3E4;
+
+}
+.redbtnitem{
+ background-color:#E93B3B;
+
+ border: 1px solid #E93B3B;
+ border-radius: 15px;
+}
+.redbtnitem a{
+ color: white !important;
+ text-decoration: none;
+}
+.line1div{
+height:220px;
+border: 1px solid #6F6D72 ;
+background-color: white;
+font-size: 14px;
+font-weight: 100;
+border-radius: 10px;
+}
+.quotes{
+ font-size:14px;
+}
+.quotes:checked{
+color:#FF4D4D;
+
+}
+.quotes option:checked{
+color:#FF4D4D !important;
+background-color: #E1E3E4 !important;
+}
+.venitem{
+color:#FF4D4D;
+}
+.line1div2{
+min-height:180px;
+border: 1px solid #6F6D72 ;
+background-color: white;
+font-size: 14px;
+font-weight: 100;
+border-radius: 10px;
+}
+.mynumber{
+font-weight:800;
+color:black;
+}
+.thelink{
+text-align: center;
+}
+.view{
+text-decoration: none;
+color: #6F6D72 !important;
+
+}
+.view:hover{
+color:#FF4D4D;
+}
+.baby{
+color: #6F6D72 ;
+text-decoration: none;
+}
+.main{
+display:flex;
+height: 300px;
+}
+
+.themain{
+min-height:800px;
+}
+
+.maindiv2{
+background-color: #F3F3F3;
+min-height:1050px;
+}
+.welcome h4{
+color:black;
+font-weight: 200;
+
+}
+.welcome p{
+font-size: 14px;
+font-weight: 100;
+}
+.addnewtask{
+display:flex;
+}
+.addbtn{
+background-color:#E93B3B;
+color: white !important;
+font-weight: 100;
+font-size: 14px;
+}
+
+#offcanvasRight{
+width:200px;
+}
+#offcanvasRightLabel{
+font-weight: 100;
+}
+.todotext{
+font-size: 12px;
+font-weight: 100;
+}
+#submittodo{
+background-color:#E93B3B;
+color: white !important;
+font-weight: 100;
+font-size: 12px;
+border-color: #FF4D4D;
+border-radius: 5px;
+}
+.tasks{
+height:150px;
+display: flex;
+}
+.taskitems{
+height:100px;
+background-color:white;
+
+}
+.taskitems p{
+font-weight: 100;
+font-size: 14px;
+
+}
+.tablehead{
+font-size:14px;
+font-weight:100;
+}
+.accordion-button{
+color:#6F6D72 ;
+font-weight: 100;
+font-size: 16px;
+}
+.accordion-button:hover{
+background-color: #f1f1f1;
+}
+.headbudget{
+display:flex;
+background-color:#F6F5F5;
+font-weight:100;
+font-size: 14px;
+}
+#budget:hover{
+color:#E93B3B;
+}
+#budgetdet:hover{
+color:#E93B3B;
+}
+.budge h5{
+color:black;
+font-weight:100;
+font-size:18px;
+}
+.budge p{
+font-weight:100;
+font-size:14px;
+}
+.budge table{
+font-weight:100;
+font-size:14px;
+}
+.budge{
+background-color: white;
+}
+.budgetdetail{
+background-color:white;
+
+}
+.tab{
+   background-color:white;
+   font-size: 14px;
+   font-weight: 100;
+}
+.additem{
+background-color:#00A490;
+color: white;
+font-size: 14px;
+font-weight: 100;
+}
+
+#display2{
+display:none;
+color: white;
+font-size: 14px;
+font-weight: 100;
+}
+#budget:hover{
+  background-color:white;
+  color:#E93B3B !important;
+
+}
+#budgetdet{
+   color: #6F6D72 !important;
+   text-decoration: none;
+   font-size: 16px;
+   font-weight: 700;
+
+}
+.listed{
+ background-color:white;
+ border:1px solid #F3F3F3 !important;
+ color:#6F6D72 !important;
+ font-weight: 100;
+ text-decoration: none !important;
+ font-size: 14px;
+
+}
+
+
+.listed a{
+color:#6F6D72 !important;
+ font-weight: 100;
+ text-decoration: none !important;
+ font-size: 14px;
+}
+
+#budget{
+   color: #6F6D72 !important;
+   text-decoration: none;
+   font-size: 16px;
+   font-weight: 700;
+
+}
+#budgetdet:hover{
+   background-color:white;
+   color:#E93B3B !important;
+
+}
+.budgetdetdiv{
+border: 1px solid #6F6D72;
+text-align: center;
+
+}
+
+.budgetdiv{
+border: 1px solid #6F6D72;
+text-align: center;
+}
+.venue{
+color:#6F6D72 !important;
+font-size: 18px;
+font-weight: 500;
+
+}
+#accordionExample{
+color:#6F6D72;
+font-weight:100;
+font-size: 14px;
+}
+.accordion-button:focus{
+box-shadow: none;
+-webkit-box-shadow: none;
+background-color: #f1f1f1;
+color:#E93B3B;
+}
+.profile{
+display: flex;
+min-height: 200px;
+font-size: 12px;
+font-weight: 100;
+}
+.theprofile{
+background-color: white;
+border: 1px solid #F6F5F5;
+
+}
+.profilehead{
+color: black;
+font-size: 16px;
+font-weight: 400;
+}
+
+.requestbtn{
+ background-color:#FF4D4D;
+ color: white;
+ border-radius: 10px;
+ border: 1px solid #FF4D4D;
+
+}
+.messagebtn{
+background-color:#FF4D4D;
+ color: white !important;
+ border-radius: 5px;
+ border: 1px solid #FF4D4D;
+ font-weight: 100;
+}
+.messagebtn a{
+color: white !important;
+ font-weight: 100;
+}
+.profileheada{
+text-decoration: none;
+color: #6F6D72;
+font-size: 16px;
+font-weight: 300;
+}
+.p1:hover{
+background-color: #FF4D4D;
+color:white !important;
+}
+.profileheada:hover{
+background-color: #FF4D4D;
+color:white !important;
+}
+#form2{
+display: none;
+}
+#notapproved_feedback{
+font-size: 20px;
+font-weight: 300;
+color: #FF4D4D;
+}
+.pic{
+border: 1px solid grey;
+border-radius: 20%;
+
+}
+.edit{
+text-decoration: underline !important;
+font-style: italic;
+}

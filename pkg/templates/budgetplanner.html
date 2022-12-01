@@ -1,0 +1,698 @@
+{%extends 'dashboard_layout.html'%}
+{%block content%}
+<div class="welcome mt-lg-5 ms-lg-2 ms-2 mt-4">
+    
+<h4  style="color:red">New Feature: Budget planner - {Coming Soon}</h4>
+<p>Start your wedding budget with the Wedding budget planner estimator tool.</p>
+<hr>
+
+
+</div>
+<div class="row addnewtask justify-content-end mb-3">
+    <div class="col-lg-2 col-5 col-sm-4 col-md-3">              
+          
+          <button class="btn addbtn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Add Budget Category</button>
+
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+                    <div class="offcanvas-header">
+
+                        <p class="offcanvas-title" id="offcanvasRightLabel">Add New Category</p>
+                        <button type="button" class="btn-close " data-bs-dismiss="offcanvas" aria-label="Close" class="col-lg-12 mb-lg-2"></button>
+
+                    </div>
+                    <div class="offcanvas-body">
+                        <form action="#" method="" class="todotext">
+                            <p>Category</p>
+                            <input type='text' name='Username' placeholder="Write Notes" class="col-lg-10 col-12 mb-3 mb-lg-2">
+                            <p>Notes</p>
+                            <textarea name='' placeholder="Write Category Name" class="col-lg-12 mb-lg-4 col-12 mb-3 " ></textarea>
+                            <button type="submit" class="btn addbtn col-lg-10 col-12 mb-3 " id="submittodo">Add Item</button>
+
+
+                        </form>
+
+                    </div>
+            </div>
+    </div>
+
+</div>
+
+<div class="row mt-lg-5 ms-lg-3 headbudget">
+        
+            <div class="col-lg-2 col-6 budgetdiv">
+            
+                <a href="#" id="budget"><p class="pt-lg-2">Budget</p>
+                </a>
+            </div>
+            <div class="col-lg-2 col-6 budgetdetdiv">
+            
+                <a href="#" id="budgetdet"><p class="pt-lg-2">Budget Details</p></a>
+
+                
+            </div>
+           
+      
+        <hr>
+</div>
+<!--Budget-->
+<div class="row budge ms-lg-2 ms-1" id="display1">
+
+    <h5 class="mt-lg-3">Budget estimator</h5>
+    <p>Our Budget estimator allows you to budget adequately towards a seamless event</p>
+    <table class="table table-hover">
+        <tr>
+        <th>Wedding Event</th>
+        <th>Estimate</th>
+        <th>Actual</th>
+        <th>Paid</th>
+        <th>Pending</th>
+
+        </tr>
+        
+
+        <tr>
+            
+            <td colspan="5">No Product Found</td>
+            
+
+            
+         </tr>
+    </table>
+</div>
+
+<!--Budget Details-->
+<div id="display2" class="ms-lg-2">
+        <div class=" budgetdetail ms-2">
+
+        <h5 class="">Budget Details</h5>
+            <p>Our Budget estimator allows you to budget adequately towards a seamless event</p>
+
+            
+            
+        </div>
+        <!--Venue-->
+        <div id="thebudgets">
+            <div class="row ">
+                <div class="col-lg-12 col-12">
+                    <p class="venue ">Venue</p>
+    
+                </div>
+                
+            </div>
+            <div class="row tab">
+                <div class="col-lg-12 col-12">
+                    
+                
+                    <table class="table table-hover">
+                        <tr>
+                        <th>Wedding Event</th>
+                        <th>Estimate</th>
+                        <th>Actual</th>
+                        <th>Paid</th>
+                        <th>Pending</th>
+                        <th>Action</th>
+    
+                        </tr>
+                        
+                
+                        <tr>
+                            
+                            <td><input type="text" value="" class= "col-lg-12" name="item" placeholder="Location Fees"></td>
+                            <td><input type="text" value="" class= "col-lg-8" name="estimate" placeholder=400></td>
+                            <td><input type="text" value="" class= "col-lg-8" name="actual" placeholder=0></td>
+                            <td><input type="text" value="" class= "col-lg-8" name="paid" placeholder=0></td>
+                            <td><input type="text" value="" class= "col-lg-8" name="pending" placeholder=0></td>
+                            <td><button type="button"  class= "col-lg-10 btn btn-danger btn2">Delete</button></td>
+    
+                            
+                        </tr>
+                        
+                        <tr id="lastrow">
+                            
+                            <td><input type="text" value="" class= "col-lg-12" name="item" placeholder="Addt'l"></td>
+                            <td><input type="text" value="" class= "col-lg-8" name="estimate" placeholder=400></td>
+                            <td><input type="text" value="" class= "col-lg-8" name="actual" placeholder=0></td>
+                            <td><input type="text" value="" class= "col-lg-8" name="paid" placeholder=0></td>
+                            <td><input type="text" value="" class= "col-lg-8" name="pending" placeholder=0></td>
+                            <td><button type="button"  class= "col-lg-10 btn btn-danger btn2">Delete</button></td>
+    
+                            
+                        </tr>
+                        <tr>
+                        
+                            <td colspan="6"><button type="submit" id ="btn1" class="btn additem">+ Add New Item</button></td>
+                            
+                
+                            
+                        </tr>
+                        <tr >
+                            
+                            <td>Total Cost of Venue	</td>
+                            <td>Estimate Total</td>
+                            <td>Actual Total</td>
+                            <td>Paid Total</td>
+                            <td>Pending Total</td>
+                            <td></td>
+    
+                            
+                        </tr>
+    
+                    </table>
+                    
+    
+                    
+    
+                </div>
+                
+            </div>
+    
+            <!--Ceremony-->
+            <div class="row ">
+                <div class="col-lg-12 ">
+                    <p class="venue">Ceremony</p>
+    
+                </div>
+                
+            </div>
+            <div class="row tab">
+                <div class="col-lg-12 col ">
+                    
+                        <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
+                
+                    <table class="table table-hover">
+                        <tr>
+                        <th>Wedding Event</th>
+                        <th>Estimate</th>
+                        <th>Actual</th>
+                        <th>Paid</th>
+                        <th>Pending</th>
+                        <th>Action</th>
+    
+                        </tr>
+                        
+                
+                        <tr>
+                            
+                            <td><input type="text" value="" class= "col-lg-12" name="item" placeholder="Decorations/accessories"></td>
+                            <td><input type="text" value="" class= "col-lg-8" name="estimate" placeholder=400></td>
+                            <td><input type="text" value="" class= "col-lg-8" name="actual" placeholder=0></td>
+                            <td><input type="text" value="" class= "col-lg-8" name="paid" placeholder=0></td>
+                            <td><input type="text" value="" class= "col-lg-8" name="pending" placeholder=0></td>
+                            <td><button type="button"  class= "col-lg-10 btn btn-danger btn2">Delete</button></td>
+    
+                            
+                        </tr>
+                        
+                        <tr id="lastrow">
+                            
+                            <td><input type="text" value="" class= "col-lg-12" name="item" placeholder="Location fee"></td>
+                            <td><input type="text" value="" class= "col-lg-8" name="estimate" placeholder=400></td>
+                            <td><input type="text" value="" class= "col-lg-8" name="actual" placeholder=0></td>
+                            <td><input type="text" value="" class= "col-lg-8" name="paid" placeholder=0></td>
+                            <td><input type="text" value="" class= "col-lg-8" name="pending" placeholder=0></td>
+                            <td><button type="button"  class= "col-lg-10 btn btn-danger btn2">Delete</button></td>
+    
+                            
+                        </tr>
+                        <tr>
+                        
+                            <td colspan="6"><button type="submit" id ="btn1" class="btn additem">+ Add New Item</button></td>
+                            
+                
+                            
+                        </tr>
+                        <tr >
+                            
+                            <td>Total Cost of Ceremony	</td>
+                            <td>Estimate Total</td>
+                            <td>Actual Total</td>
+                            <td>Paid Total</td>
+                            <td>Pending Total</td>
+                            <td></td>
+    
+                            
+                        </tr>
+    
+                    </table>
+                    
+    
+                    
+    
+                </div>
+                
+            </div>
+    
+            <!--Hair and Makeup-->
+            <div class="row ">
+                <div class="col-lg-12 ">
+                    <p class="venue mt-lg-2">Ceremony</p>
+    
+                </div>
+                
+            </div>
+            <div class="row tab">
+                <div class="col-lg-12 ">
+                    
+                        <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
+                
+                    <table class="table table-hover">
+                        <tr>
+                        <th>Wedding Event</th>
+                        <th>Estimate</th>
+                        <th>Actual</th>
+                        <th>Paid</th>
+                        <th>Pending</th>
+                        <th>Action</th>
+    
+                        </tr>
+                        
+                
+                        
+                        <tr id="lastrow">
+                            
+                            <td><input type="text" value="" class= "col-lg-12" name="item" placeholder="Hair makeup"></td>
+                            <td><input type="text" value="" class= "col-lg-8" name="estimate" placeholder=400></td>
+                            <td><input type="text" value="" class= "col-lg-8" name="actual" placeholder=0></td>
+                            <td><input type="text" value="" class= "col-lg-8" name="paid" placeholder=0></td>
+                            <td><input type="text" value="" class= "col-lg-8" name="pending" placeholder=0></td>
+                            <td><button type="button"  class= "col-lg-10 btn btn-danger btn2">Delete</button></td>
+    
+                            
+                        </tr>
+                        <tr>
+                        
+                            <td colspan="6"><button type="submit" id ="btn1" class="btn additem">+ Add New Item</button></td>
+                            
+                
+                            
+                        </tr>
+                        <tr >
+                            
+                            <td>Total Cost of Hair/Makeup</td>
+                            <td>Estimate Total</td>
+                            <td>Actual Total</td>
+                            <td>Paid Total</td>
+                            <td>Pending Total</td>
+                            <td></td>
+    
+                            
+                        </tr>
+    
+                    </table>
+                    
+    
+                    
+    
+                </div>
+                
+            </div>
+    
+            <!--Flowers-->
+    
+            <div class="row ">
+                <div class="col-lg-12 ">
+                    <p class="venue ">Flowers</p>
+    
+                </div>
+                
+            </div>
+            <div class="row tab">
+                <div class="col-lg-12 ">
+                    
+                
+                    <table class="table table-hover">
+                        <tr>
+                        <th>Wedding Event</th>
+                        <th>Estimate</th>
+                        <th>Actual</th>
+                        <th>Paid</th>
+                        <th>Pending</th>
+                        <th>Action</th>
+    
+                        </tr>
+                        
+                
+                        <tr>
+                            
+                            <td><input type="text" value="" class= "col-lg-12" name="item" placeholder="Bouquets"></td>
+                            <td><input type="text" value="" class= "col-lg-8" name="estimate" placeholder=400></td>
+                            <td><input type="text" value="" class= "col-lg-8" name="actual" placeholder=0></td>
+                            <td><input type="text" value="" class= "col-lg-8" name="paid" placeholder=0></td>
+                            <td><input type="text" value="" class= "col-lg-8" name="pending" placeholder=0></td>
+                            <td><button type="button"  class= "col-lg-10 btn btn-danger btn2">Delete</button></td>
+    
+                            
+                        </tr>
+                        
+                        <tr id="lastrow">
+                            
+                            <td><input type="text" value="" class= "col-lg-12" name="item" placeholder="Decorations/centerpieces"></td>
+                            <td><input type="text" value="" class= "col-lg-8" name="estimate" placeholder=400></td>
+                            <td><input type="text" value="" class= "col-lg-8" name="actual" placeholder=0></td>
+                            <td><input type="text" value="" class= "col-lg-8" name="paid" placeholder=0></td>
+                            <td><input type="text" value="" class= "col-lg-8" name="pending" placeholder=0></td>
+                            <td><button type="button"  class= "col-lg-10 btn btn-danger btn2">Delete</button></td>
+    
+                            
+                        </tr>
+                        <tr>
+                        
+                            <td colspan="6"><button type="submit" id ="btn1" class="btn additem">+ Add New Item</button></td>
+                            
+                
+                            
+                        </tr>
+                        <tr >
+                            
+                            <td>Total Cost of Flower	</td>
+                            <td>Estimate Total</td>
+                            <td>Actual Total</td>
+                            <td>Paid Total</td>
+                            <td>Pending Total</td>
+                            <td></td>
+                            
+                        </tr>
+    
+                    </table>
+                    
+    
+                    
+    
+                </div>
+                
+            </div>
+    
+            <!--Cake--->
+            <div class="row ">
+                <div class="col-lg-12 ">
+                    <p class="venue ">Cake</p>
+    
+                </div>
+                
+            </div>
+            <div class="row tab">
+                <div class="col-lg-12 ">
+                    
+                
+                    <table class="table table-hover">
+                        <tr>
+                        <th>Wedding Event</th>
+                        <th>Estimate</th>
+                        <th>Actual</th>
+                        <th>Paid</th>
+                        <th>Pending</th>
+                        <th>Action</th>
+    
+                        </tr>
+                        
+                
+                        
+                        
+                        <tr id="lastrow">
+                            
+                            <td><input type="text" value="" class= "col-lg-12" name="item" placeholder="Cake + cutting fee"></td>
+                            <td><input type="text" value="" class= "col-lg-8" name="estimate" placeholder=400></td>
+                            <td><input type="text" value="" class= "col-lg-8" name="actual" placeholder=0></td>
+                            <td><input type="text" value="" class= "col-lg-8" name="paid" placeholder=0></td>
+                            <td><input type="text" value="" class= "col-lg-8" name="pending" placeholder=0></td>
+                            <td><button type="button"  class= "col-lg-10 btn btn-danger btn2">Delete</button></td>
+    
+                            
+                        </tr>
+                        <tr>
+                        
+                            <td colspan="6"><button type="submit" id ="btn1" class="btn additem">+ Add New Item</button></td>
+                            
+                
+                            
+                        </tr>
+                        <tr >
+                            
+                            <td>Total Cost of Cake</td>
+                            <td>Estimate Total</td>
+                            <td>Actual Total</td>
+                            <td>Paid Total</td>
+                            <td>Pending Total</td>
+                            <td></td>
+    
+                            
+                        </tr>
+    
+                    </table>
+                    
+    
+                    
+    
+                </div>
+                
+            </div>
+    
+            <!--Photography-->
+            <div class="row ">
+                <div class="col-lg-12 ">
+                    <p class="venue">Photography</p>
+    
+                </div>
+                
+            </div>
+            <div class="row tab">
+                <div class="col-lg-12 ">
+                    
+                
+                    <table class="table table-hover">
+                        <tr>
+                        <th>Wedding Event</th>
+                        <th>Estimate</th>
+                        <th>Actual</th>
+                        <th>Paid</th>
+                        <th>Pending</th>
+                        <th>Action</th>
+    
+                        </tr>
+                        
+                        <tr>
+                            
+                            <td><input type="text" value="" class= "col-lg-12" name="item" placeholder="Photographer"></td>
+                            <td><input type="text" value="" class= "col-lg-8" name="estimate" placeholder=400></td>
+                            <td><input type="text" value="" class= "col-lg-8" name="actual" placeholder=0></td>
+                            <td><input type="text" value="" class= "col-lg-8" name="paid" placeholder=0></td>
+                            <td><input type="text" value="" class= "col-lg-8" name="pending" placeholder=0></td>
+                            <td><button type="button"  class= "col-lg-10 btn btn-danger btn2">Delete</button></td>
+    
+                            
+                        </tr>
+                        <tr>
+                            
+                            <td><input type="text" value="" class= "col-lg-12" name="item" placeholder="Videographer"></td>
+                            <td><input type="text" value="" class= "col-lg-8" name="estimate" placeholder=400></td>
+                            <td><input type="text" value="" class= "col-lg-8" name="actual" placeholder=0></td>
+                            <td><input type="text" value="" class= "col-lg-8" name="paid" placeholder=0></td>
+                            <td><input type="text" value="" class= "col-lg-8" name="pending" placeholder=0></td>
+                            <td><button type="button"  class= "col-lg-10 btn btn-danger btn2">Delete</button></td>
+    
+                            
+                        </tr>
+                        
+                        <tr id="lastrow">
+                            
+                            <td><input type="text" value="" class= "col-lg-12" name="item" placeholder="Extra Prints"></td>
+                            <td><input type="text" value="" class= "col-lg-8" name="estimate" placeholder=400></td>
+                            <td><input type="text" value="" class= "col-lg-8" name="actual" placeholder=0></td>
+                            <td><input type="text" value="" class= "col-lg-8" name="paid" placeholder=0></td>
+                            <td><input type="text" value="" class= "col-lg-8" name="pending" placeholder=0></td>
+                            <td><button type="button"  class= "col-lg-10 btn btn-danger btn2">Delete</button></td>
+    
+                            
+                        </tr>
+                        <tr>
+                        
+                            <td colspan="6"><button type="submit" id ="btn1" class="btn additem">+ Add New Item</button></td>
+                            
+                
+                            
+                        </tr>
+                        <tr >
+                            
+                            <td>Total Cost of Photography		</td>
+                            <td>Estimate Total</td>
+                            <td>Actual Total</td>
+                            <td>Paid Total</td>
+                            <td>Pending Total</td>
+                            <td></td>
+    
+                            
+                        </tr>
+    
+                    </table>
+                    
+    
+                    
+    
+                </div>
+                
+            </div>
+    
+            <!--Printed Material-->
+            <div class="row ">
+                <div class="col-lg-12 ">
+                    <p class="venue ">Printed Material</p>
+    
+                </div>
+                
+            </div>
+            <div class="row tab">
+                <div class="col-lg-12 ">
+                  <form action="" method="">   
+                
+                    <table class="table table-hover">
+                        <tr>
+                        <th>Wedding Event</th>
+                        <th>Estimate</th>
+                        <th>Actual</th>
+                        <th>Paid</th>
+                        <th>Pending</th>
+                        <th>Action</th>
+    
+                        </tr>
+                        
+                
+                        <tr>
+                            
+                            <td><input type="text" value="" class= "col-lg-12" name="item" placeholder="save the dates"></td>
+                            <td><input type="text" value="" class= "col-lg-8" name="estimate" placeholder=400></td>
+                            <td><input type="text" value="" class= "col-lg-8" name="actual" placeholder=0></td>
+                            <td><input type="text" value="" class= "col-lg-8" name="paid" placeholder=0></td>
+                            <td><input type="text" value="" class= "col-lg-8" name="pending" placeholder=0></td>
+                            <td><button type="button"  class= "col-lg-10 btn btn-danger btn2">Delete</button></td>
+    
+                            
+                        </tr>
+                        <tr>
+                            
+                            <td><input type="text" value="" class= "col-lg-12" name="item" placeholder="Wedding programs"></td>
+                            <td><input type="text" value="" class= "col-lg-8" name="estimate" placeholder=400></td>
+                            <td><input type="text" value="" class= "col-lg-8" name="actual" placeholder=0></td>
+                            <td><input type="text" value="" class= "col-lg-8" name="paid" placeholder=0></td>
+                            <td><input type="text" value="" class= "col-lg-8" name="pending" placeholder=0></td>
+                            <td><button type="button"  class= "col-lg-10 btn btn-danger btn2">Delete</button></td>
+    
+                            
+                        </tr>
+                        
+                        <tr id="lastrow">
+                            
+                            <td><input type="text" value="" class= "col-lg-12" name="item" placeholder="Invitations"></td>
+                            <td><input type="text" value="" class= "col-lg-8" name="estimate" placeholder=400></td>
+                            <td><input type="text" value="" class= "col-lg-8" name="actual" placeholder=0></td>
+                            <td><input type="text" value="" class= "col-lg-8" name="paid" placeholder=0></td>
+                            <td><input type="text" value="" class= "col-lg-8" name="pending" placeholder=0></td>
+                            <td><button type="button"  class= "col-lg-10 btn btn-danger btn2">Delete</button></td>
+    
+                            
+                        </tr>
+                        <tr>
+                        
+                            <td colspan="6"><button type="submit" id ="btn1" class="btn additem">+ Add New Item</button></td>
+                            
+                
+                            
+                        </tr>
+                        <tr >
+                            
+                            <td>Total Cost of Printed Materials		</td>
+                            <td>Estimate Total</td>
+                            <td>Actual Total</td>
+                            <td>Paid Total</td>
+                            <td>Pending Total</td>
+                            <td></td>
+    
+                            
+                        </tr>
+    
+                    </table>
+                    
+                </form>
+                    
+    
+                </div>
+                
+            </div>
+
+
+        </div>
+        
+</div>
+{%endblock%}
+{% block js %}
+ <script type="text/javascript">
+    $(document).ready(function(){
+			var add =2;
+
+			
+			$('#btn1').click(function(){
+
+          
+				add++;
+				
+			var myid= 'box' + add;
+
+			$('#lastrow').after( '<tr id="'   + myid + '" ><td><input type="text" class= "col-lg-12" ></td><td><input type="text" class= "col-lg-8"></td><td><input type="text" class= "col-lg-8"></td><td><input type="text" class= "col-lg-8" ></td><td><input type="text" class= "col-lg-8"></td><td><button type="button"  class= "col-lg-10 btn btn-danger btn2">Delete</button></td></tr>'); 
+			
+
+			
+			});
+
+			$('.btn2').click(function(){
+
+                var the_id = '#box' + add
+
+
+                $(the_id).remove()
+
+                add = add - 1
+
+
+
+			
+
+			
+			});
+
+            $('#budget').click(function(){
+
+            $('#display1').show(2,function(){
+            $('#display2').hide()
+
+
+            })
+
+
+
+
+            });
+            $('#budgetdet').click(function(){
+
+            $('#display2').show(2,function(){
+            $('#display1').hide()
+
+
+            })
+
+
+
+
+            });
+
+
+
+                
+
+                        
+
+			
+
+		});
+		
+
+ </script>
+{%endblock%}

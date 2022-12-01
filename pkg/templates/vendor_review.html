@@ -1,0 +1,48 @@
+{%extends 'dashboard_vendor.html'%}
+
+{%block content%}
+<div class="welcome mt-lg-5 ms-lg-5 mt-4 ms-4">
+<h4>Listing Reviews</h4>
+<p>Check your latest reviews.</p>
+<hr>
+
+<div>
+    {%if getreviews%}
+        {%for myreviews in getreviews%}
+        {% if myreviews.review_item.vendor_listing_id==myvendor and myreviews.listeditem_id !=None%}
+<div class="row justify-content-center mb-lg-3 mb-4 listed">
+    
+    <div class="col-lg-10 col-10">
+
+    <a href="#">
+        <h5>{{myreviews.review_item.title}}</h5>
+        <p> Name: {{myreviews.couple_name}}</p>
+        <p>Email: {{myreviews.couple_email}}</p>
+        <p>Review: {{myreviews.rating}} </p>
+
+        
+
+    </a>
+    </div>
+    
+ 
+</div>
+{%endif%}
+
+{%endfor%}
+
+{%endif%}
+
+
+    
+
+
+    
+
+</div>
+
+</div>
+
+
+
+{%endblock%}

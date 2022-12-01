@@ -1,0 +1,195 @@
+{%extends 'dashboard_layout.html'%}
+{%set t= get_flashed_messages()%}
+{%block content%}
+<div class="welcome mt-lg-5 ms-lg-5 ms-4 mt-4">
+  
+
+<h4>My To Do List</h4>
+<p>Create and manage your wedding planning checklist. Its ultimate and real simple.</p>
+<hr>
+
+
+</div>
+{%if t%}
+{%for message in t%}
+<div class="alert alert-danger">{{message}}</div>
+{%endfor%}
+{%endif%}
+<div class="row addnewtask justify-content-end">
+    <div class="col-lg-2 col-5 col-sm-4 col-md-3">              
+
+          <button class="btn addbtn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Add New Task</button>
+
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+                    <div class="offcanvas-header">
+
+                        <p class="offcanvas-title" id="offcanvasRightLabel">Create Task</p>
+                        <button type="button" class="btn-close " data-bs-dismiss="offcanvas" aria-label="Close" class="col-lg-12 mb-lg-2"></button>
+
+                    </div>
+                    <div class="offcanvas-body">
+                        <form action="{{url_for('todo_dashboard')}}" method="post" class="todotext">
+                            {{mytodo.task.label}} 
+                            {{mytodo.task (placeholder="Write Task Here", class_="col-lg-10 col-12 mb-3 mb-lg-2 mt-lg-3")}} 
+
+                            {{mytodo.task_date.label}} 
+                            {{mytodo.task_date (placeholder="Write Task Here", class_="col-lg-10  col-12 mb-3 mb-lg-4  mt-lg-3")}} 
+                            <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
+
+                            {{mytodo.submit (class_="addbtn col-lg-10  col-12 mb-3 btn", id="submittodo")}} 
+
+
+                        </form>
+
+                    </div>
+            </div>
+    </div>
+
+</div>
+
+<div class="row tasks justify-content-around mt-lg-5 mb-lg-4 mb-4 mt-3">
+    <div class="col-lg-3 col-10 mb-3 taskitems">
+      {%if complete_task%}
+        <h1 class="mynumber mt-lg-2">{{complete_task|count}}</h1>
+        <p>Completed Task</p>
+        {%else%}
+        <h1 class="mynumber mt-lg-2">0</h1>
+        <p>Completed Task</p>
+    {%endif%}
+    </div>
+    {%if uncomplete_task%}
+    <div class="col-lg-3 col-10 mb-3 taskitems">
+        <h1 class="mynumber mt-lg-2">{{uncomplete_task|count}}</h1>
+        <p>Pending</p>
+
+    </div>
+    {%else%}
+    <div class="col-lg-3 col-10 mb-3 taskitems">
+      <h1 class="mynumber mt-lg-2">0</h1>
+      <p>Pending</p>
+
+  </div>
+    {%endif%}
+    {%if thet%}
+
+    <div class="col-lg-3 col-10 mb-3 taskitems">
+
+        <h1 class="mynumber mt-lg-2">{{thet|count}}</h1>
+        <p>Total Task</p>
+    </div>
+
+</div>
+{%else%}
+<div class="col-lg-3 col-10 mb-3 taskitems">
+
+  <h1 class="mynumber mt-lg-2">0</h1>
+  <p>Total Task</p>
+</div>
+
+</div>
+{%endif%}
+
+    <div class="accordion col-12" id="accordionExample">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingOne">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                My Tasks
+            </button>
+          </h2>
+          <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+                <table class="table table-danger">
+                    <tr class="tablehead">
+                      <th colspan="4">The Task</th>
+
+                      <th colspan="4">Task Date</th>
+                      <th colspan="4">Status</th>
+                      <th colspan="4">Action</th>
+                    </tr>
+                    {%if thet%}
+
+                    {%for t in thet%}
+
+                    <tr>
+                      <td colspan="4">{{t.the_task}}</td>
+
+                      <td colspan="4">{{t.task_date}}</td>
+                      <td colspan="4">{{t.status}}</td>
+                      <td colspan="4"><button class="addbtn ax"><a href="/task_completed/{{t.task_id}}" class="all_a">Completed</a></button>&nbsp; | &nbsp;<button class="addbtn ax"><a href="/delete_task/{{t.task_id}}" class="all_a">Delete</a></button></td>
+
+                        
+            
+                        
+                     </tr>
+                     {%endfor%}
+           
+               </table>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+       
+      
+
+{%else%}
+<div class="row tasks justify-content-around mt-lg-5 mb-lg-4 mt-4 mb-4">
+  <div class="col-lg-2 col-10 mb-3 taskitems">
+      <h1 class="mynumber mt-lg-2">0</h1>
+      <p>Completed Task</p>
+
+  </div>
+  <div class="col-lg-2 col-10 mb-3 taskitems">
+      <h1 class="mynumber mt-lg-2">0</h1>
+      <p>Due Task</p>
+
+  </div>
+  <div class="col-lg-2 col-10 mb-3 taskitems">
+      <h1 class="mynumber mt-lg-2">0</h1>
+      <p>Pending</p>
+
+  </div>
+  <div class="col-lg-2 col-10 mb-3 taskitems">
+
+      <h1 class="mynumber mt-lg-2">0</h1>
+      <p>Total Task</p>
+  </div>
+
+</div>
+
+
+  <div class="accordion" id="accordionExample">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOne">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              My Task
+          </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+              <table class="table">
+                  <tr class="tablehead">
+                  <th><input type="checkbox">All</th>
+                  <th>Task Date</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                  </tr>
+                  
+                  <tr>
+          
+                      <td colspan="4">No Task Found</td>
+                      
+          
+                      
+                   </tr>
+                  
+         
+             </table>
+          </div>
+        </div>
+      </div>
+      
+      </div>
+    
+{%endif%}
+{%endblock%}

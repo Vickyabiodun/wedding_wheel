@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vendor Login - Wedding Wheel </title>
+    <meta charset="utf-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!--This is my facebook meta tag-->
+    <meta property="og:site_name" content="">
+    <meta property="og:type" content="web application">
+    <meta property="og:image" content="">
+    <meta property="og:url" content="">
+
+    <!--This is my twitter meta tag-->
+    <meta name="twitter:site" content="">
+    <meta name="twitter:title" content="">
+    <meta name="twitter:description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+     
+    <!--bootstrap-->    
+
+	<link href="/static/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
+    <!--fontawesome-->    
+
+	<link href='/static/fontawesome/css/all.css' rel='stylesheet'>
+  <!--Google font-->
+  <link href="https://fonts.googleapis.com/css?family=Rubik:300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+<style>
+    
+    .thebg{
+        background-image:url("/static/image/cbg2.jpg");
+          height: 1000px;
+          background-size:cover;
+          background-repeat: no-repeat;
+          background-position: center;
+    }
+    .overlay{
+          background-color: rgba(0,0,0,0.2);
+          height: 1000px;
+          
+        }
+    .logo{
+        color: red;
+        font-size: 30px;
+        font-family: 'Rubik', sans-serif;
+        margin-top: 3%;
+    }
+    .theforms{
+        display: flex;
+        min-height:50px;
+        background-color: white;
+        margin-top: 3%;
+
+    }
+    .theforma {
+        text-align: center;
+        text-decoration: none;
+        color: black ;
+        font-family: 'Rubik', sans-serif;
+        font-size: 18px;
+        font-weight: 100;
+        border: 3px solid red;
+
+
+    }
+    #option1{
+        text-align: center;
+    }
+
+    #option2{
+        text-align: center;
+    }
+    .theforma:hover{
+        color:red;
+
+    }
+    .second{
+        background-color: white;
+        height:500px;
+        font-family: 'Rubik', sans-serif;
+        font-size: 18px;
+        font-weight: 100;
+        text-align: left;
+
+    }
+    .second1{
+        background-color: white;
+        min-height:400px;
+        font-family: 'Rubik', sans-serif;
+        font-size: 18px;
+        font-weight: 100;
+        text-align: left;
+        display: none;
+    }
+    .log{
+        font-family: 'Rubik', sans-serif;
+        font-size: 18px;
+        font-weight: 100;
+        text-align: left;
+        margin-top: 5%;
+    }
+    #log1{
+        text-decoration: none;
+        color: black ;
+    }
+    #log1:hover{
+        color: red;
+    }
+    #log2{
+        text-decoration: none;
+        color: black ;
+    }
+    #log2:hover{
+        color: red;
+    }
+    #logoname{
+        text-decoration: none;
+        color: red ;
+    }
+</style>
+    
+        
+
+</head>
+<body>
+{%set text=get_flashed_messages()%}
+
+  <div class="container-fluid thebg">
+    <div class="overlay">
+        <div class="row justify-content-center">
+            <div class="logo col-lg-3 col-9">
+                <a href="{{url_for('hompage')}}" id="logoname">
+                    <img src="/static/image/logo.png" class=" mt-3">
+                    <span">WedWheel</span>
+                </a>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-4 col-7 theforms">
+            <div class="col-lg-6 col-6">
+            
+                <p id="option1" class="mt-3"><a href="#" class="theforma p-2">Register</a></p>
+
+            </div>
+            <div class="col-lg-6 col-6">
+            
+                <p id="option2" class="mt-3"><a href="#" class="theforma p-2">Login</a></p>
+
+
+            </div>
+            
+        </div>
+        </div>
+        <div class="row justify-content-center">
+                <div class="col-lg-4 col-7 second" id="d2" >
+                    {%if text%}
+                    {%for t in text%}
+                    <p class="alert alert-danger ms-lg-3 ms-3">{{t}}</p>
+                    {%endfor%}
+                    {%endif%}
+                    <h4 class=" pt-lg-3 pt-2 t">Browse 33,000 vendor profile and reviews.</h4>
+                    <p class=" t">We don't post anything without your permission. </p>
+                    <form action="{{url_for('couple_singup')}}" method="post">		
+                        
+                                        
+                        <input type='text' name='username' placeholder="Username" class="col-lg-12  p-2 mb-lg-3 mb-3 col-12" id="name1"  required>
+                        <div id="chk_name" class="ms-lg-5"></div>
+
+                        <input type='email' name='email' placeholder="Email" class="col-lg-12  p-2 mb-lg-3 mb-3 col-12" id="email" required>
+                        <div id="chk_email" class="ms-lg-5"></div>
+                        <input type='password' name='password' placeholder="Password" class="col-lg-12  p-2 mb-lg-3 mb-3 col-12" required>
+                        <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
+
+                        <button type='submit' class='btn btn-danger  p-2' id="signupbtn">Sign Up</button>
+                
+                        <div class="col-lg-10 log" >
+                            <p>Have you subscribed? <a href="#" id="log1"><span>Login</span></a></p>
+                
+                        </div>
+                    </form>
+                    
+                </div>
+                <div class="col-lg-4 col-7 second1" id="d1">
+                    <h4 class=" pt-lg-3 t" >Sign In to Your Account</h4>
+                    <p class="t">Sign in to plan your perfect day with our planning tools and inspiration more... </p>
+                    <form action="{{url_for('couple_login')}}" method="post" >		
+                                                        
+                        <input type='text' name='username' placeholder="Username" class="col-lg-12 p-2 mb-lg-3 mb-3 col-12" id="name" required>
+
+                        <input type='password' name='password' placeholder="Password" class="col-lg-12 p-2 mb-lg-3 mb-3 col-12"id="pwd" required>
+
+                        <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
+
+                        <button type='submit' class='btn btn-danger p-2 col-4'>Login</button>
+                
+                        <div class="col-lg-10 log " >
+                            <p>Are you new here? <a href="#" id="log2"><span>Click here to create an account</span></a></p>
+                
+                        </div>
+                    </form>
+                    
+                </div>
+
+            </div>
+        </div>   
+
+  </div>
+        
+     
+
+
+
+
+      
+   
+
+    <script type='text/javascript' src='/static/js/jquery-3.6.1.min.js'></script>
+    <script type='text/javascript'>
+      $(document).ready(function(){
+			
+			$('#option1').click(function(){
+
+				$('#d2').show(2,function(){
+				$('#d1').hide()
+
+
+				})
+
+				
+
+
+			});
+			$('#option2').click(function(){
+
+				$('#d1').show(2,function(){
+				$('#d2').hide()
+
+
+				})
+
+				
+
+
+			});
+
+           $("#email").change(function(){
+            var email =$(this).val()
+            var emaildeets ={"email":email}
+            $.ajax({
+                url:"{{url_for('email_check')}}",
+                type:"get",
+                data:emaildeets,
+                dataType:"text",
+                success:function(msg){
+                    $("#chk_email").html(msg)
+                },
+                error:function(error){
+                    console.log(error)
+                }
+            })
+           });
+            
+           $("#name1").change(function(){
+            var name =$(this).val()
+            var namedeets ={"username":name}
+            $.ajax({
+                url:"{{url_for('name_check')}}",
+                type:"get",
+                data:namedeets,
+                dataType:"text",
+                success:function(msg){
+                    $("#chk_name").html(msg)
+                },
+                error:function(error){
+                    console.log(error)
+                }
+            })
+           }) 
+
+           $("#signupbtn").click(function(){
+            if(($('#chk_email').html() !="" || $('#chk_name').html() !="" )){
+                event.preventDefault()
+                confirm('Unable to submit because details already in use')
+            }
+           })
+		});
+		
+        
+	</script>
+
+</body>
+
+
+</html>
